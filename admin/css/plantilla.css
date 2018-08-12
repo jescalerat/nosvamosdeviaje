@@ -1,0 +1,491 @@
+body
+{
+	/*background-color:rgb(197,214,232); /*c5d6e8*/
+	background-image:url(../imagenes/fondo.png);
+	background-repeat:repeat-x;
+	background-color: #1f26f9;
+	font-family : Verdana;
+	font-size : 10pt; 
+}
+
+body.administracion
+{
+	background-image:url();
+	background-color: #FFFFFF;
+	font-family : Verdana;
+	font-size : 10pt; 
+}
+
+/*******************************************************************************************************************/
+/**********BLOQUES**************************************************************************************************/
+.bloque_logo{  
+	height: 50px;
+	padding: 0 0 100px 0;
+	margin: 0 auto 0 auto;
+	clear:both;
+}
+
+.bloque_patrocinador{  
+	height: 150px;
+	clear:both;
+}
+
+.bloque_idioma{
+	width: 160px;
+	height: 30px;
+}
+
+.bloque_menu{
+	width: 160px;
+	height: 200px;
+}
+
+.bloque_reloj{ 
+	width: 160px;
+	height: 150px;
+}
+
+.bloque_izquierda{
+	width: 160px;
+	height: 380px;
+	float: left;
+}
+
+.bloque_central{
+	margin: 0 0 0 200px;
+}
+
+.bloque_resultados{ 
+	width: 330px; 
+	height: 180px;
+	margin: 0 auto 0 auto;
+	padding: 0 5px 0 5px;
+	float: left;
+}
+
+.bloque_pie{
+	height: 150px;
+	padding: 5px 0 0 0;
+	clear:both;
+}
+
+.borderojo{
+	border:1px solid #FF0000;
+}
+
+.bordenegro{
+	border:1px solid #000000;
+}
+
+#footer {
+  color:#111111;
+  padding:0;
+  position:fixed;
+  bottom:0;
+  right:0;
+  width:100%;
+  z-index:99;
+  text-align:center;
+  background-color: #fff;
+}
+
+
+/*******************************************************************************************************************/
+
+.centrar{text-align : center;}
+
+.texto_destacado{color: red;}
+.texto_destacado_negro{font-weight:bold}
+
+img {border:none;}
+
+table
+{
+	empty-cells: show;
+	font-family : Verdana;
+	font-size : 10pt; 
+	text-align : left;
+}
+
+.tabla_sin_borde
+{
+	border-collapse:collapse;
+	border:0px 
+}
+
+table.clasificacion
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+}
+
+table.clasificacion td
+{
+	border-width: 1px;
+	border-style: solid;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.clasificacion th
+{
+	border-width: 1px;
+	border-style: solid;
+	background-color: white;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.resultados
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+}
+
+table.resultados td
+{
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.resultados th
+{
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.resultados_principal
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+}
+
+table.resultados_principal td
+{
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.resultados_principal th
+{
+	border-width: 1px;
+	border-style: solid;
+}
+
+table.horarios
+{
+	border-width: 1px;
+	border-style: solid;
+	width: 100%;
+}
+
+table.horarios td
+{
+	border-width: 1px;
+	border-style: solid;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.horarios th
+{
+	border-width: 1px;
+	border-style: solid;
+	background-color: white;
+	/*-moz-border-radius: 6px 6px 6px 6px; //CSS3*/
+}
+
+table.admin
+{
+	width: 100%;
+}
+
+table.admin td
+{
+	background-color: red;
+}
+
+table.admin th
+{
+	background-color: blue;
+}
+
+div.centrado{
+text-align: center;
+}
+div.centrado table {
+margin: 0 auto;
+text-align: left;
+}
+
+
+.w5{width:5%;}.w10{width:10%;}.w15{width:15%;}.w20{width:20%;}.w25{width:25%;}
+.w30{width:30%;}.w35{width:35%;}.w40{width:40%;}.w45{width:45%;}.w50{width:50%;}
+.w55{width:55%;}.w60{width:60%;}.w65{width:65%;}.w70{width:70%;}.w75{width:75%;}
+.w80{width:80%;}.w85{width:85%;}.w90{width:90%;}.w95{width:95%;}.w100{width:100%;}
+.w12{width:12%;}.w17{width:17%;}.w22{width:22%;}.w26{width:26%;}.w37{width:37%;}
+
+a:link { font-family:Verdana; color: red } 
+a:visited { font-family:Verdana; color: red }
+a:hover { font-family:Verdana; font-weight: bold }
+
+a.admin:link { font-family:Verdana; color: yellow; text-decoration: none; } 
+a.admin:visited { font-family:Verdana; color: yellow }
+a.admin:hover { font-family:Verdana; font-weight: bold }
+
+button
+{
+	font-family: Tahoma, Verdana, Arial; 
+	font-size: 14px; 
+	color: #FFFFFF; 
+	background-color: #6699CC; 
+	border: #000099; 
+	border-style: solid; 
+	border-top-width: 1px; 
+	border-right-width: 1px;
+	border-bottom-width: 1px; 
+	border-left-width: 1px
+}
+
+input.boton
+{
+	font-family: Tahoma, Verdana, Arial; 
+	font-size: 14px; 
+	color: #FFFFFF; 
+	background-color: #6699CC; 
+	border: #000099; 
+	border-style: solid; 
+	border-top-width: 1px; 
+	border-right-width: 1px;
+	border-bottom-width: 1px; 
+	border-left-width: 1px
+}
+
+h1 a:link{color: #FFFFCC; } 
+h1 a:hover { font-weight: bold;color: red; }
+h1
+{
+	font-family:Verdana;
+	font-size:20px;
+	color:#FFFFCC;
+}
+
+h1.contador
+{
+	color : yellow; 
+	font-family : Comic Sans MS, sans-serif;
+	font-size : 30pt; 
+	text-align: center;
+}
+
+h1.admin
+{
+	color : red; 
+	font-family : Comic Sans MS, sans-serif;
+	font-size : 30pt; 
+	text-align: center;
+}
+
+h2
+{
+	font-family:Verdana;
+	font-size:15px;
+	color:#FFFFCC;
+}
+
+h2.admin
+{
+	color : red; 
+	font-family : Comic Sans MS, sans-serif;
+	font-size : 15pt; 
+	text-align: center;
+}
+
+h3.admin
+{
+	color : blue; 
+	font-family : Comic Sans MS, sans-serif;
+	font-size : 12pt; 
+	text-align: center;
+}
+
+h3
+{
+	font-family:Verdana;
+	font-size:12px;
+	color:#FFFFCC;
+}
+
+input.reloj
+{
+	border-style:none ; 
+	/*background-color : rgb(59,34,226);*/
+	background-color : rgb(137,23,163);
+	color : black; 
+	font-family : Verdana;
+	font-size : 10pt; 
+	text-align : center;
+}
+
+input.error_contactar
+{
+	border-style:none ; 
+	background-color: #1f26f9;
+	color : red; 
+	font-family : Verdana;
+	font-size : 10pt; 
+	text-align : left;
+}
+
+input.error_foro
+{
+	border-style:none ; 
+	background-color: #1f26f9;
+	color : red; 
+	font-family : Verdana;
+	font-size : 10pt; 
+	/*text-align : center;*/
+}
+
+input.error_registro
+{
+	border-style:none ; 
+	background-color: #1f26f9;
+	color : red; 
+	font-family : Verdana;
+	font-size : 10pt; 
+	/*text-align : center;*/
+}
+
+/*Para mostrar aciertos*/
+td.quiniela
+{
+	background-color : rgb(85,228,158); 
+}
+
+/*Para mostrar cuando le falta algun pronostico*/
+td.sinpronostico
+{
+	background-color : rgb(255,255,85); 
+}
+
+/*Para mostrar el equipo que sube*/
+tr.sube
+{
+	background-color : rgb(0,255,255); 
+}
+
+/*Para mostrar el equipo que promociona*/
+tr.promociona
+{
+	background-color : rgb(255,255,128); 
+}
+
+/*Para mostrar los equipos que bajan*/
+tr.desciende
+{
+	background-color : rgb(0,255,0); 
+}
+
+/*Error en el registro. Usuario duplicado*/
+p.registro
+{
+	color : red; 
+	font-family : Verdana;
+	font-size : 10pt; 
+	text-align : center;
+}
+
+/*Salida de un usuario no valido*/
+p.salir
+{
+	font-family:Verdana;
+	font-size:10pt;
+	color:#FFFFCC;
+	text-align : center;
+}
+
+
+/*Para mostrar el equipo que sube en la promoción*/
+td.sube
+{
+	background-color : rgb(0,255,255); 
+}
+
+/*---------------------------------------------------------------------------------------------------------------*/
+/*Pestañas*/
+#ContTabul {
+      border-left: 1px solid #CCC;
+      border-right: 1px solid #CCC;
+      border-bottom: 1px solid #CCC;
+      padding: 10px 5px 1px 5px;
+}
+ul#tabnav {
+      list-style-type: none;
+      margin: 0;
+      padding-left: 0px;
+      /*padding-left: 40px;    Original*/
+      padding-bottom: 24px;
+      border-bottom: 1px solid #CCC;
+      font: 11px verdana, arial, sans-serif;
+}
+ul#tabnav li {
+      float: left;
+      height: 21px;
+      background-color: #E4E4E4;
+      color: #666;
+      /*margin: 2px 10px 0 2px;          Original*/
+      margin: 2px 2px 0 2px;
+      border: 1px solid #CCC;
+}
+ul#tabnav a:link, ul#tabnav a:visited {
+      display: block;
+      color: #666;
+      text-decoration: none;
+      padding: 4px;
+}
+ul#tabnav a:hover {
+      background-color: #CCC;
+      color: #666;
+}
+#tabnav .activo {
+      border-bottom: 1px solid #fff;
+      color: #000000;
+      background-color: #FFFFFF;
+}
+#tabnav .inactivo {}
+
+
+/*---------------------------------------------------------------------------------------------------------------*/
+/*Precargador imagenes*/
+.loading {
+	background: url(../imagenes/loading.gif) no-repeat center center;
+}
+
+
+
+/*---------------------------------------------------------------------------------------------------------------*/
+/*http://qrayg.com/experiment/cssmenus/*/
+/*Menu*/
+ul#navmenu-v,ul#navmenu-v li,ul#navmenu-v ul { width: 140px; /* Menu Width */ margin: 0; list-style: none; } 
+ul#navmenu-v li { float: left; position: relative; width: 100%; } 
+ul#navmenu-v li.iehover { z-index: 1000; /* IE z-index bugfix */ } 
+ul#navmenu-v ul { display: none; position: absolute; top: 0; left: 100%; z-index: 9999; } 
+/* Root Menu */ 
+ul#navmenu-v a { border-top: 1px solid #FFF; border-right: 1px solid #FFF; padding: 6px; display: block; background: #DDD; color: #666; font: bold 11px Arial, sans-serif; text-decoration: none; height: 15px; }
+/* Root Menu Hover Persistence */ 
+ul#navmenu-v a:hover,ul#navmenu-v li:hover a,ul#navmenu-v li.iehover a { background: #BBB; color: #FFF; } 
+/* 2nd Menu */ 
+ul#navmenu-v li:hover li a,ul#navmenu-v li.iehover li a { float: none; background: #BBB; } 
+/* 2nd Menu Hover Persistence */ 
+ul#navmenu-v li:hover li a:hover,ul#navmenu-v li:hover li:hover a,ul#navmenu-v li.iehover li a:hover,ul#navmenu-v li.iehover li.iehover a { background: #999; }
+/* 3rd Menu */ 
+ul#navmenu-v li:hover li:hover li a,ul#navmenu-v li.iehover li.iehover li a { background: #999; } 
+/* 3rd Menu Hover Persistence */ 
+ul#navmenu-v li:hover li:hover li a:hover,ul#navmenu-v li:hover li:hover li:hover a,ul#navmenu-v li.iehover li.iehover li a:hover,ul#navmenu-v li.iehover li.iehover li.iehover a { background: #666; } 
+/* 4th Menu */ 
+ul#navmenu-v li:hover li:hover li:hover li a,ul#navmenu-v li.iehover li.iehover li.iehover li a { background: #666; } 
+/* 4th Menu Hover */ 
+ul#navmenu-v li:hover li:hover li:hover li a:hover,ul#navmenu-v li.iehover li.iehover li.iehover li a:hover { background: #333; } 
+/* Hover Function - Do Not Move */ 
+ul#navmenu-v li:hover ul ul,ul#navmenu-v li:hover ul ul ul,ul#navmenu-v li.iehover ul ul,ul#navmenu-v li.iehover ul ul ul { display: none; } ul#navmenu-v li:hover ul,ul#navmenu-v ul li:hover ul,ul#navmenu-v ul ul li:hover ul,ul#navmenu-v li.iehover ul,ul#navmenu-v ul li.iehover ul,ul#navmenu-v ul ul li.iehover ul { display: block; }
