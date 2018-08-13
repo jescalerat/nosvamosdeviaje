@@ -14,9 +14,11 @@
 			}
 			if (isset($_GET['opcion'])){
 				$opcion = $_GET['opcion'];
+				print("Opciong GET: ".$opcion);
 			}
 			if (isset($_POST['opcion'])){
 				$opcion = $_POST['opcion'];
+				print("<br>Opciong POST: ".$opcion);
 			}
 
 			require_once("includes/menu.php");

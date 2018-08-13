@@ -208,7 +208,7 @@ function cargarPagina(pagina){
 	}
 }
 
-/*Validación formulario de contacto*/
+/*Validaciï¿½n formulario de contacto*/
 function validar(ok) {
 	if (ok==1)
 	{
@@ -439,7 +439,7 @@ function cerrar_ampliacion(){
 //-----------------------------------------------------------------------------------------------------------------
 
 /*--------------------------------------------------------------------------------------------------------------*/
-/*Pestañas*/
+/*Pestaï¿½as*/
 function CambiarEstilo(id, id2) {
 	var elementosMenu = getElementsByClassName(document, "li", "activo");
 	for (k = 0; k< elementosMenu.length; k++) {
@@ -477,7 +477,7 @@ function getElementsByClassName(oElm, strTagName, strClassName){
     }
     return (arrReturnElements)
 }
-/*Fin de pestañas*/
+/*Fin de pestaï¿½as*/
 /*--------------------------------------------------------------------------------------------------------------*/
 
 function cargarCambioIdioma(idioma)

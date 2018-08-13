@@ -1,4 +1,5 @@
-﻿<?php
+﻿
+<?php
 
 	if (!isset($_SESSION["admin_web"]))
 	{
@@ -30,3 +31,11 @@
 	mysqli_free_result($qcontador);
 	mysqli_free_result($qvisitas);
 ?>	
+		<h5><?=$contador?></h5>
+
+      <!--JavaScript at end of body for optimized loading-->
+      <script type="text/javascript" src="js/materialize.min.js"></script>
+	  <script type="text/javascript" src="js/funciones.js"></script>
+	  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+    </body>
+  </html>
