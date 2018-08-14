@@ -49,5 +49,4 @@
 			$link=Conectarse();
 		}
 ?>
-<div id="conexiones" name="conexiones">
-		</div> 
+<div id="conexiones" name="conexiones"></div> 

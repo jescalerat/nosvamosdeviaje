@@ -1,12 +1,4 @@
 <?php
-
-	if (file_exists("../../conf/traduccion.php")){
-		require_once("../../conf/traduccion.php");
-		require_once("../../conf/conexion.php");
-		require_once("../../conf/funciones.php");
-		$link=Conectarse();
-	}
-
 	$query="select * from rutas ";
 	$rutas=mysqli_query ($link, $query);
 
@@ -23,7 +15,7 @@
 ?>
 			<tr>
 				<td><a href="rutas.php?idRuta=<?= $ruta["IdRuta"] ?>&opcion=U"><?= $ruta["FechaES"] ?></a>
-				<td><a href="rutas.php?idRuta=<?= $ruta["IdRuta"] ?>&opcion=D">Eliminar</a>
+				<td><a href="resultados.php?idRuta=<?= $ruta["IdRuta"] ?>&opcion=D&idPagina=2">Eliminar</a>
 			</tr>
 <?php
 		} //while($ruta=mysqli_fetch_array($rutas, MYSQLI_BOTH))

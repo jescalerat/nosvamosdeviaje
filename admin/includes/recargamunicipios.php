@@ -95,8 +95,8 @@
 			<td colspan="2" class="w100"><center><?php print($tituloProvincia);?></center></td>	
 		</tr>
 		<tr>
-			<td class="w50" valign="top"><?php include("visitados.php"); ?></td>
-			<td class="w50" valign="top"><?php include("novisitados.php"); ?></td>
+			<td style="vertical-align:top"><?php include("visitados.php"); ?></td>
+			<td style="vertical-align:top"><?php include("novisitados.php"); ?></td>
 		</tr>
 <?php			
 		} //while($provincia=mysqli_fetch_array($provincias, MYSQLI_BOTH))

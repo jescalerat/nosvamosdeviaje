@@ -12,6 +12,7 @@ $(document).ready(function(){
 	} else {
 		var pathRecargaMunicipios = path + '/admin/includes/recargamunicipios.php';
 		var pathAdminListadoRutas = path + '/admin/includes/inc_listado_rutas.php';
+		var pathAdminResultados =  path + '/admin/resultados.php';
 	}
 		
 	$("#paisSelect").jCombo({ url: pathPaises, selected_value : '15' } );
@@ -76,95 +77,5 @@ $(document).ready(function(){
 			});
 		});            
 	});
-
-   //Carga formulario admin pueblos visitados
-    $(".boton_envio").click(function() {
- 
-		var dia = $(".dia").val();
-		var mes = $(".mes").val();
-		var anyo = $(".anyo").val();
-		var titulo = $(".titulo").val();
-		var facebook = $(".facebook").val();
-		var idMunVisitado = $(".idMunVisitado").val();
-		var idVisitado = $(".idVisitado").val();
-		var opcion = $(".opcion").val();
-
-        if (dia == "") {
-            $(".dia").focus();
-            return false;
-        }else if (mes == "") {
-            $(".mes").focus();
-            return false;
-        }else if (anyo == "") {
-            $(".anyo").focus();
-            return false;
-        }else if(titulo == ""){
-            $(".titulo").focus();
-            return false;
-        }else if(facebook == ""){
-            $(".facebook").focus();
-            return false;
-        }else{
-			$('.ajaxgif').removeClass('hide');
-			var datos = 'dia='+ dia + '&mes=' + mes + '&anyo=' + anyo + '&titulo=' + titulo + '&facebook=' + facebook + '&idMunVisitado=' + idMunVisitado + '&idVisitado=' + idVisitado + '&opcion=' + opcion;
-			$.ajax({
-			    type: "POST",
-			    url: pathAdminMunicipios,
-			    data: datos,
-			    success: function() {
-			        $('.ajaxgif').hide();
-			        $('.msg').text('Mensaje enviado!').addClass('msg_ok').animate({ 'right' : '130px' }, 300);  
-			    },
-			    error: function() {
-			        $('.ajaxgif').hide();
-			        $('.msg').text('Hubo un error!').addClass('msg_error').animate({ 'right' : '130px' }, 300);                 
-			    }
-			});
-			return false;
-        }
- 
-    });
-
-   
-	//Carga formulario rutas
-    $(".boton_envio_ruta").click(function() {
- 
-		var fechaES = $("#fechaES").val();
-		var fechaCA = $("#fechaCA").val();
-		var fechaEN = $("#fechaEN").val();
-		var idRuta = $("#idRuta").val();
-		var opcion = $("#opcion").val();
-		
-	    if (fechaES == "") {
-            $("#fechaES").focus();
-            return false;
-        }else if (fechaCA == "") {
-            $("#fechaCA").focus();
-            return false;
-        }else if (fechaEN == "") {
-            $("#fechaEN").focus();
-            return false;
-        }else{
-			$('.ajaxgif').removeClass('hide');
-			var datos = 'fechaES='+ fechaES + '&fechaCA=' + fechaCA + '&fechaEN=' + fechaEN + '&idRuta=' + idRuta + '&opcion=' + opcion;
-			$.ajax({
-			    type: "POST",
-			    url: pathAdminRutas,
-			    data: datos,
-			    success: function() {
-			        $('.ajaxgif').hide();
-			        $('.msg').text('Mensaje enviado!').addClass('msg_ok').animate({ 'right' : '130px' }, 300);
-					$("#listado_rutas").load(pathAdminListadoRutas);
-			    },
-			    error: function() {
-			        $('.ajaxgif').hide();
-			        $('.msg').text('Hubo un error!').addClass('msg_error').animate({ 'right' : '130px' }, 300);                 
-			    }
-			});
-			return false;
-        }
- 
-    });
-   
 
 });

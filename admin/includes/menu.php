@@ -21,6 +21,18 @@
 							<a href="rutas.php">Rutas</a>
 						</td>
 					</tr>
+					<tr>
+						<td>
+							&nbsp;
+							<a href="comentarios.php">Comentarios</a>
+						</td>
+					</tr>
+					<tr>
+						<td>
+							&nbsp;
+							<a href="fotos.php">Fotos</a>
+						</td>
+					</tr>
 					
 					<tr>
 						<th>

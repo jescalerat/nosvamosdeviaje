@@ -5,9 +5,17 @@
 		<div class="col s3" id="menu">
 <?php					
 			$opcion = "N";
-			$idRuta = 0;
-			if(isset($_GET['idRuta'])){
-				$idRuta = $_GET['idRuta'];
+			$idComentario = 0;
+			if(isset($_GET['idComentario'])){
+				$idComentario = $_GET['idComentario'];
+			}
+			$idVisitado = 0;
+			if(isset($_GET['idVisitado'])){
+				$idVisitado = $_GET['idVisitado'];
+			}
+			$idMunicipio = 0;
+			if(isset($_GET['idMunicipio'])){
+				$idMunicipio = $_GET['idMunicipio'];
 			}
 
 			require_once("includes/menu.php");
@@ -15,13 +23,8 @@
 		</div>
 		<div class="col s9" id="principal">
 <?php					
-			require_once("includes/inc_rutas.php");
+			require_once("includes/inc_comentarios.php");
 ?>
-			<div id="listado_rutas">
-<?php
-				require_once("includes/inc_listado_rutas.php");
-?>
-			</div>
 		</div>
 	</div>
 

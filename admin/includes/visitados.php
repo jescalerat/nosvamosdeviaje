@@ -1,11 +1,6 @@
 ﻿<table border="1" class="w100">
 <?php	
 	
-	if (isset($_GET['opcion']) && $_GET['opcion'] == 'D'){
-		$query="delete from visitados where IdVisitado = ".$_GET['idVisitado'];
-		mysqli_query ($link, $query);
-	}
-	
 	$query="select c.IdComunidad, c.Comunidad, p.IdProvincia, p.Provincia, m.IdMunicipio, m.Municipio, v.Fecha, v.IdVisitado  ";
 	$query.="from municipios m  ";
 	$query.="left join provincias p on m.IdProvincia=p.IdProvincia ";
@@ -26,14 +21,14 @@
 		$idMunicipioVisitado=$municipio["IdVisitado"];
 ?>
 			<tr>
-				<td class="w40" valign="top">
+				<td>
 					<a class="admin" href="visitado.php?idVisitado=<?= $idMunicipioVisitado ?>&opcion=U"><?= $tituloMunicipio ?></a>
 				</td>
-				<td class="w30">
+				<td>
 					<center><?= $municipio["Fecha"] ?></center>
 				</td>
-				<td class="w30">
-					<a class="admin" href="visitas.php?idVisitado=<?= $idMunicipioVisitado ?>&opcion=D">Eliminar</a>
+				<td>
+					<a href="resultados.php?idVisitado=<?= $idMunicipioVisitado ?>&opcion=D&idPagina=1">Eliminar</a>
 				</td>
 			</tr>
 <?php			

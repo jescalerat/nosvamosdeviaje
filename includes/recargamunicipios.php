@@ -7,9 +7,7 @@
 	}
 ?>
 	<table>
-		<tr>
-			<th><h1><?php print(cambiarAcentos(strtoupper("Visitados")));?></h1></td>
-		</tr>
+		
 <?php	
 	
 	$idPais = 0;
@@ -65,6 +63,8 @@
 		$tituloProvincia=strtoupper($provincia["Provincia"]);
 		$idProvincia=$provincia["IdProvincia"];
 		$tituloMunicipio=$provincia["Municipio"];
+		$idMunicipio=$provincia["IdMunicipio"];
+		$idVisitado=$provincia["IdVisitado"];
 
 		if ($idComunidadPost != $idComunidad){
 			$mostrarTituloComunidad = 1;
@@ -95,8 +95,10 @@
 		}  //if ($mostrarTituloProvincia == 1){
 ?>	
 		<tr>
-			<td valign="top"><?= $tituloMunicipio ?></td>
-			<td valign="top"><?= $provincia["Fecha"] ?></td>
+			<td valign="top">
+				<a href="#" onclick="llamada_prototype('paginas/visitados.php?idVisitado=<?= $idVisitado ?>&idMunicipio=<?= $idMunicipio ?>','principal');"><?= $tituloMunicipio ?></a>
+ 			</td>
+			<td valign="top"><?= devolverFecha($provincia["Fecha"]) ?></td>
 		</tr>
 <?php			
 	}

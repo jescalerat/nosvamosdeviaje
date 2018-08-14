@@ -5,9 +5,13 @@
 		<div class="col s3" id="menu">
 <?php					
 			$opcion = "N";
-			$idRuta = 0;
-			if(isset($_GET['idRuta'])){
-				$idRuta = $_GET['idRuta'];
+			$idFoto = 0;
+			if(isset($_GET['idFoto'])){
+				$idFoto = $_GET['idFoto'];
+			}
+			$idMunicipio = 0;
+			if(isset($_GET['idMunicipio'])){
+				$idMunicipio = $_GET['idMunicipio'];
 			}
 
 			require_once("includes/menu.php");
@@ -15,13 +19,8 @@
 		</div>
 		<div class="col s9" id="principal">
 <?php					
-			require_once("includes/inc_rutas.php");
+			require_once("includes/inc_fotos.php");
 ?>
-			<div id="listado_rutas">
-<?php
-				require_once("includes/inc_listado_rutas.php");
-?>
-			</div>
 		</div>
 	</div>
 
