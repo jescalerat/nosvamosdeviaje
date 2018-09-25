@@ -213,7 +213,7 @@ function diaFinal($mes)
 function devolverDia($fecha)
 {
 	$fechacompleta=explode("-",$fecha);
-	$dia=$fechacompleta[0];
+	$dia=$fechacompleta[2];
 	return $dia;
 }
 
@@ -227,18 +227,15 @@ function devolverMes($fecha)
 function devolverAny($fecha)
 {
 	$fechacompleta=explode("-",$fecha);
-	$any=$fechacompleta[2];
+	$any=$fechacompleta[0];
 	return $any;
 }
 
 function devolverFecha($fecha)
 {
-	$fechacompleta=explode("-",$fecha);
-	$dia=$fechacompleta[0];
-	$fechacompleta=explode("-",$fecha);
-	$mes=mesAny($fechacompleta[1]);
-	$fechacompleta=explode("-",$fecha);
-	$any=$fechacompleta[2];
+	$dia=devolverDia($fecha);
+	$mes=mesAny(devolverMes($fecha));
+	$any=devolverAny($fecha);
 	$fechaTraducida=$dia."-".$mes."-".$any;
 	return $fechaTraducida;
 }

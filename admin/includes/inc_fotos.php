@@ -22,7 +22,7 @@
 
 	<input type="hidden" id="idMunicipio" name="idMunicipio" value="<?= $idMunicipio ?>"/>
 	<input type="hidden" id="opcion" name="opcion" value="<?= $opcion ?>"/>
-	<input type="hidden" id="idPagina" name="idPagina" value="4"/>	
+	<input type="hidden" id="idPagina" name="idPagina" value="4"/>
 </form>
 
 <h1>Sin Fotos</h1>

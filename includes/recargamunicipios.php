@@ -58,9 +58,9 @@
 		
 	while($provincia=mysqli_fetch_array($provincias, MYSQLI_BOTH))
 	{
-		$tituloComunidad=strtoupper($provincia["Comunidad"]);
+		$tituloComunidad=mb_strtoupper($provincia["Comunidad"]);
 		$idComunidad=$provincia["IdComunidad"];
-		$tituloProvincia=strtoupper($provincia["Provincia"]);
+		$tituloProvincia=mb_strtoupper($provincia["Provincia"]);
 		$idProvincia=$provincia["IdProvincia"];
 		$tituloMunicipio=$provincia["Municipio"];
 		$idMunicipio=$provincia["IdMunicipio"];
@@ -95,10 +95,10 @@
 		}  //if ($mostrarTituloProvincia == 1){
 ?>	
 		<tr>
-			<td valign="top">
+			<td valign="top" width="70%">
 				<a href="#" onclick="llamada_prototype('paginas/visitados.php?idVisitado=<?= $idVisitado ?>&idMunicipio=<?= $idMunicipio ?>','principal');"><?= $tituloMunicipio ?></a>
  			</td>
-			<td valign="top"><?= devolverFecha($provincia["Fecha"]) ?></td>
+			<td valign="top" width="30%"><?= devolverFecha($provincia["Fecha"]) ?></td>
 		</tr>
 <?php			
 	}

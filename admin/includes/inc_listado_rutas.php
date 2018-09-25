@@ -14,8 +14,8 @@
 		{
 ?>
 			<tr>
-				<td><a href="rutas.php?idRuta=<?= $ruta["IdRuta"] ?>&opcion=U"><?= $ruta["FechaES"] ?></a>
-				<td><a href="resultados.php?idRuta=<?= $ruta["IdRuta"] ?>&opcion=D&idPagina=2">Eliminar</a>
+				<td><a href="rutas.php?idRuta=<?= $ruta["IdRuta"] ?>&opcion=U"><?= $ruta["FechaES"] ?></a></td>
+				<td><a href="resultados.php?idRuta=<?= $ruta["IdRuta"] ?>&opcion=D&idPagina=2">Eliminar</a></td>
 			</tr>
 <?php
 		} //while($ruta=mysqli_fetch_array($rutas, MYSQLI_BOTH))

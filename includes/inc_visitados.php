@@ -32,7 +32,7 @@
 <form class="col s12">
 	<div class="row">
 		<div class="col s12" id="comentario">
-			<?= cambiarAcentos(mb_strtoupper($comentarioText)) ?>
+			<?= cambiarAcentos($comentarioText) ?>
 		</div>
 	</div>
 	<div class="row">

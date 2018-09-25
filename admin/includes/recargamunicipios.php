@@ -92,7 +92,7 @@
 			<td colspan="2" class="w100"><center><?php print($tituloComunidad);?></center></td>	
 		</tr>
 		<tr>
-			<td colspan="2" class="w100"><center><?php print($tituloProvincia);?></center></td>	
+			<td colspan="2" class="w100"><center><?= $tituloProvincia ?></center></td>	
 		</tr>
 		<tr>
 			<td style="vertical-align:top"><?php include("visitados.php"); ?></td>

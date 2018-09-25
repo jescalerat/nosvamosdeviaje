@@ -36,6 +36,20 @@
 				<input type="text" id="fechaEN" name="fechaEN" value="<?= $fechaEN ?>" />
 			</div>
 		</div>
+<?php		
+		if ($idRuta != "" && $idRuta != "undefined"){
+?>
+			<div class="row">
+				<div class="col s6" id="addMunicipios">
+					<a href="rutas_municipios.php?idRuta=<?= $idRuta ?>">Añadir municipios</a>
+				</div>
+				<div class="col s6" id="addComentarios">
+					<a href="rutas_comentarios.php?idRuta=<?= $idRuta ?>">Añadir comentarios</a>
+				</div>
+			</div>
+<?php
+		}
+?>
 		<div class="row">
 			<div class="col s12" id="botonEnvio">
 				<button>Enviar Mensaje</button>

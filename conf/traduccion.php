@@ -107,6 +107,14 @@ if ($idioma==1) //Español
 	define ('_MUNIPROVINCIAS','Provincias');
 	define ('_MUNIMUNICIPIOS','Municipios');
 	
+	//Rutas
+	define ('_RUTASTITULO','Rutas');
+
+	//Ruta
+	define ('_RUTADIA','Día');
+	define ('_RUTAMUNICIPIOS','Municipios visitados');
+	
+
 
 }
 else if ($idioma==2) //Inglés
