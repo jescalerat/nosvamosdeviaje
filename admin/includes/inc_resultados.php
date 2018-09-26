@@ -5,6 +5,7 @@
 	//4 - Fotos
 	//5 - Rutas Municipios
 	//6 - Rutas Comentarios
+	//7 - Rutas Dias
 	$idPagina = 0;
 	$opcion = 0;
 
@@ -238,6 +239,56 @@
 		}
 
 		$volver = "rutas_comentarios.php?idRuta=".$idRuta;
+	}  else if ($idPagina == 7){
+		$idRutaDia = 0;
+		if (isset($_POST['idRutaDia'])){
+			$idRutaDia = $_POST['idRutaDia'];
+		} else if (isset($_GET['idRutaDia'])){
+			$idRutaDia = $_GET['idRutaDia'];
+		}
+		$idRuta = 0;
+		if (isset($_POST['idRuta'])){
+			$idRuta = $_POST['idRuta'];
+		} else if (isset($_GET['idRuta'])){
+			$idRuta = $_GET['idRuta'];
+		}
+		$fecha = "";
+		if (isset($_POST['fecha'])){
+			$fecha = $_POST['fecha'];
+		} else if (isset($_GET['fecha'])){
+			$fecha = $_GET['fecha'];
+		}
+		if ($fecha != ""){
+			$fechaArray = explode('/', $fecha);
+			$dia = $fechaArray[0];
+			$mes = $fechaArray[1];
+			$anyo = $fechaArray[2];
+			$fechaBBDD = $anyo."-".$mes."-".$dia;
+		}
+		
+		if ($opcion == "N"){
+			$query="select max(IdRutaDia) as IdRutaDia  ";
+			$query.="from rutas_dias  ";
+		
+			$rutasDiasBBDD=mysqli_query ($link, $query);
+			$rowmaxid=mysqli_fetch_array($rutasDiasBBDD);
+			$idRutaDia = $rowmaxid["IdRutaDia"] + 1;
+
+			$query="insert into rutas_dias (IdRutaDia, IdRuta, Fecha) values (".$idRutaDia.", ".$idRuta.", '".$fechaBBDD."')";
+			mysqli_query ($link, $query);
+			print("<br>".$query.";");
+			mysqli_free_result($rutasDiasBBDD);
+		} else if ($opcion == "U"){
+			$query="update rutas_dias set Fecha='".$fechaBBDD."' where IdRutaDia=".$idRutaDia;
+			mysqli_query ($link, $query);
+			print("Update: ".$query);
+		} else if ($opcion == "D"){
+			$query="delete from rutas_dias where IdRutaDia=".$idRutaDia;
+			mysqli_query ($link, $query);
+			print("Delete: ".$query);
+		}
+
+		$volver = "rutas_dias.php?idRuta=".$idRuta;
 	}
 
 
