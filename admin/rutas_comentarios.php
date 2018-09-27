@@ -5,10 +5,10 @@
 		<div class="col s3" id="menu">
 <?php					
 			$opcion = "N";
-			$idRuta = 0;
+			$idRutaDia = 0;
 			$idRutaComentario = 0;
-			if(isset($_GET['idRuta'])){
-				$idRuta = $_GET['idRuta'];
+			if(isset($_GET['idRutaDia'])){
+				$idRutaDia = $_GET['idRutaDia'];
 			}
 			if(isset($_GET['opcion'])){
 				$opcion = $_GET['opcion'];

@@ -21,17 +21,17 @@
 	$rutas=mysqli_query ($link, $query);
 ?>
 
-	<ul>
+	<div class="collection">
 <?php
 	while($ruta=mysqli_fetch_array($rutas, MYSQLI_BOTH))
 	{
 		$titulo=$ruta["Titulo"];
 		
 ?>
-		<li><a href="#" onclick="llamada_prototype('paginas/ruta.php?idRuta=<?= $ruta["IdRuta"] ?>','principal');"><?= cambiarAcentos($titulo) ?></a></li>
+		<a href="#" class="collection-item" onclick="llamada_prototype('paginas/ruta.php?idRuta=<?= $ruta["IdRuta"] ?>','principal');"><?= cambiarAcentos($titulo) ?></a>
 <?php
 	}		
 	mysqli_free_result($rutas);
 ?>
-	</ul>
+	</div>
 </form>

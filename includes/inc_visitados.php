@@ -1,6 +1,5 @@
 ﻿<?php
 	$idVisitado = $_GET['idVisitado'];
-	$idMunicipio = $_GET['idMunicipio'];
 
 	if ($idioma == 1){
 		$comentario = "ComentarioES";
@@ -20,6 +19,16 @@
 	$rowvisitado=mysqli_fetch_array($visitado);
 
 	$comentarioText = $rowvisitado["Comentario"];
+	mysqli_free_result($visitado);
+
+	$query="select *  ";
+	$query.="from visitados v  ";
+	$query.="where v.IdVisitado = ".$idVisitado;
+
+	$visitado=mysqli_query ($link, $query);
+	$rowvisitado=mysqli_fetch_array($visitado);
+
+	$idMunicipio = $rowvisitado["IdMunicipio"];
 	mysqli_free_result($visitado);
 
 	$query="select * ";

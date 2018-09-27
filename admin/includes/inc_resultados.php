@@ -161,11 +161,11 @@
 
 		$volver = "fotos.php";
 	} else if ($idPagina == 5){
-		$idRuta = 0;
-		if (isset($_POST['idRuta'])){
-			$idRuta = $_POST['idRuta'];
-		} else if (isset($_GET['idRuta'])){
-			$idRuta = $_GET['idRuta'];
+		$idRutaDia = 0;
+		if (isset($_POST['idRutaDia'])){
+			$idRutaDia = $_POST['idRutaDia'];
+		} else if (isset($_GET['idRutaDia'])){
+			$idRutaDia = $_GET['idRutaDia'];
 		}
 		$idVisitado = 0;
 		if (isset($_POST['idVisitado'])){
@@ -173,18 +173,38 @@
 		} else if (isset($_GET['idVisitado'])){
 			$idVisitado = $_GET['idVisitado'];
 		}
+		$idRutaMunicipio = 0;
+		if (isset($_GET['idRutaMunicipio'])){
+			$idRutaMunicipio = $_GET['idRutaMunicipio'];
+		}
 		
 		if ($opcion == "N"){
-			$query="insert into rutas_municipios (IdRuta, IdVisitado) values (".$idRuta.", ".$idVisitado.")";
+			$query="select max(IdRutaMunicipio) as IdRutaMunicipio  ";
+			$query.="from rutas_municipios  ";
+		
+			$rutasMunicipiosBBDD=mysqli_query ($link, $query);
+			$rowmaxid=mysqli_fetch_array($rutasMunicipiosBBDD);
+			$idRutaMunicipio = $rowmaxid["IdRutaMunicipio"] + 1;
+
+			$query="select max(Orden) as Orden  ";
+			$query.="from rutas_municipios where IdRutaDia = ".$idRutaDia;
+		
+			$rutasMunicipiosOrdenBBDD=mysqli_query ($link, $query);
+			$roworden=mysqli_fetch_array($rutasMunicipiosOrdenBBDD);
+			$orden = $roworden["Orden"] + 1;
+
+			$query="insert into rutas_municipios (IdRutaMunicipio, IdRutaDia, IdVisitado, Orden) values (".$idRutaMunicipio.", ".$idRutaDia.", ".$idVisitado.", ".$orden.")";
 			mysqli_query ($link, $query);
 			print("<br>".$query.";");
+			mysqli_free_result($rutasMunicipiosBBDD);
+			mysqli_free_result($rutasMunicipiosOrdenBBDD);
 		} else if ($opcion == "D"){
-			$query="delete from rutas_municipios where IdRuta=".$idRuta." and IdVisitado=".$idVisitado;
+			$query="delete from rutas_municipios where IdRutaMunicipio=".$idRutaMunicipio;
 			mysqli_query ($link, $query);
 			print("Delete: ".$query);
 		}
 
-		$volver = "rutas_municipios.php?idRuta=".$idRuta;
+		$volver = "rutas_municipios.php?idRutaDia=".$idRutaDia;
 	}  else if ($idPagina == 6){
 		$idRutaComentario = 0;
 		if (isset($_POST['idRutaComentario'])){
@@ -192,25 +212,13 @@
 		} else if (isset($_GET['idRutaComentario'])){
 			$idRutaComentario = $_GET['idRutaComentario'];
 		}
-		$idRuta = 0;
-		if (isset($_POST['idRuta'])){
-			$idRuta = $_POST['idRuta'];
-		} else if (isset($_GET['idRuta'])){
-			$idRuta = $_GET['idRuta'];
+		$idRutaDia = 0;
+		if (isset($_POST['idRutaDia'])){
+			$idRutaDia = $_POST['idRutaDia'];
+		} else if (isset($_GET['idRutaDia'])){
+			$idRutaDia = $_GET['idRutaDia'];
 		}
-		$fecha = "";
-		if (isset($_POST['fecha'])){
-			$fecha = $_POST['fecha'];
-		} else if (isset($_GET['fecha'])){
-			$fecha = $_GET['fecha'];
-		}
-		if ($fecha != ""){
-			$fechaArray = explode('/', $fecha);
-			$dia = $fechaArray[0];
-			$mes = $fechaArray[1];
-			$anyo = $fechaArray[2];
-			$fechaBBDD = $anyo."-".$mes."-".$dia;
-		}
+		
 		$comentarioES = str_replace("'", "''", isset($_POST['comentarioES'])?$_POST['comentarioES']:"");
 		$comentarioCA = str_replace("'", "''", isset($_POST['comentarioCA'])?$_POST['comentarioCA']:"");
 		$comentarioEN = str_replace("'", "''", isset($_POST['comentarioEN'])?$_POST['comentarioEN']:"");
@@ -224,12 +232,12 @@
 			$rowmaxid=mysqli_fetch_array($rutasComentariosBBDD);
 			$idRutaComentario = $rowmaxid["IdRutaComentario"] + 1;
 
-			$query="insert into rutas_comentarios (IdRutaComentario, IdRuta, Fecha, ComentarioES, ComentarioCA, ComentarioEN) values (".$idRutaComentario.", ".$idRuta.", '".$fechaBBDD."', '".$comentarioES."', '".$comentarioCA."', '".$comentarioEN."')";
+			$query="insert into rutas_comentarios (IdRutaComentario, IdRutaDia, ComentarioES, ComentarioCA, ComentarioEN) values (".$idRutaComentario.", ".$idRutaDia.", '".$comentarioES."', '".$comentarioCA."', '".$comentarioEN."')";
 			mysqli_query ($link, $query);
 			print("<br>".$query.";");
 			mysqli_free_result($rutasComentariosBBDD);
 		} else if ($opcion == "U"){
-			$query="update rutas_comentarios set Fecha='".$fechaBBDD."', ComentarioES='".$comentarioES."', ComentarioCA='".$comentarioCA."', ComentarioEN='".$comentarioEN."' where IdRutaComentario=".$idRutaComentario;
+			$query="update rutas_comentarios set ComentarioES='".$comentarioES."', ComentarioCA='".$comentarioCA."', ComentarioEN='".$comentarioEN."' where IdRutaComentario=".$idRutaComentario;
 			mysqli_query ($link, $query);
 			print("Update: ".$query);
 		} else if ($opcion == "D"){
@@ -238,7 +246,7 @@
 			print("Delete: ".$query);
 		}
 
-		$volver = "rutas_comentarios.php?idRuta=".$idRuta;
+		$volver = "rutas_comentarios.php?idRutaDia=".$idRutaDia;
 	}  else if ($idPagina == 7){
 		$idRutaDia = 0;
 		if (isset($_POST['idRutaDia'])){

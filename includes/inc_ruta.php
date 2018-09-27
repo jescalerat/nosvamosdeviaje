@@ -36,34 +36,13 @@
 </form>
 
 <?php
-	$query="select v.*, m.Municipio, p.Provincia ";
-	$query.=" from rutas_municipios rm ";
-	$query.=" left join visitados v on v.IdVisitado = rm.IdVisitado ";
-	$query.=" left join municipios m on m.IdMunicipio = v.IdMunicipio ";
-	$query.=" left join provincias p on p.IdProvincia = m.IdProvincia ";
-	$query.=" where rm.idRuta = ".$idRuta;
-	$query.=" order by v.Fecha asc, rm.Orden asc ";
+	$query="select rd.IdRutaDia, rd.Fecha ";
+	$query.=" from rutas r  ";
+	$query.=" left join rutas_dias rd on rd.IdRuta = r.IdRuta ";
+	$query.=" where r.idRuta = ".$idRuta;
+	$query.=" order by rd.Fecha asc ";
 
-	$visitados=mysqli_query ($link, $query);
-
-	$fechaTemp = "";
-	$mismaFecha = false;
-	while($visitado=mysqli_fetch_array($visitados, MYSQLI_BOTH))
-	{
-		$municipio = $visitado["Municipio"]." (".$visitado["Provincia"].")";
-		if ($fechaTemp != $visitado["Fecha"]){
-			$fechaTemp = $visitado["Fecha"];
-			$mismaFecha = false;
-		} else {
-			$mismaFecha = true;
-		}
-		
-		if (!$mismaFecha){
-			$arrayMunicipios[$visitado["Fecha"]] = $municipio."</br>";
-		} else {
-			$arrayMunicipios[$visitado["Fecha"]] .= $municipio."</br>";
-		}
-	}
+	$diasRuta=mysqli_query ($link, $query);
 ?>
 
 <div class="row">
@@ -78,20 +57,21 @@
 				</th>
 			</tr>
 <?php
-		foreach($arrayMunicipios as $fechas => $municipio)
-		{
+			while($dia=mysqli_fetch_array($diasRuta, MYSQLI_BOTH))
+			{
+				$idRutaDia = $dia["IdRutaDia"];
 ?>
-			<tr>
-				<td>
-				<a href="#" onclick="llamada_prototype('paginas/ruta.php?idRuta=<?= $ruta["IdRuta"] ?>','principal');"><?= devolverFecha($fechas) ?></a>
-				</td>
-				<td>
-					<?= cambiarAcentos($municipio) ?>
-				</td>
-			</tr>
+				<tr>
+					<td>
+						<a href="#" onclick="llamada_prototype('paginas/ruta_dia.php?idRutaDia=<?= $dia['IdRutaDia'] ?>','principal');"><?= devolverFecha($dia["Fecha"]) ?></a>
+					</td>
+					<td>
+						<?= require_once("../includes/inc_ruta_municipios.php"); ?>
+					</td>
+				</tr>
 <?php
-		}		
-		mysqli_free_result($visitados);
+			}		
+			mysqli_free_result($diasRuta);
 ?>
 		</table>
 	</div>

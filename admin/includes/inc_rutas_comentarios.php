@@ -1,18 +1,17 @@
 <?php
-	$fechaForm = "";
 	$comentarioES = "";
 	$comentarioCA = "";
 	$comentarioEN = "";
 
 
-	if ($idRuta != "" && $idRuta != "undefined"){
-		$query="select * from rutas where idRuta = ".$idRuta;
-		$rutas=mysqli_query ($link, $query);
-		$rowruta=mysqli_fetch_array($rutas);
+	if ($idRutaDia != "" && $idRutaDia != "undefined"){
+		$query="select * from rutas_dias where idRutaDia = ".$idRutaDia;
+		$rutasdias=mysqli_query ($link, $query);
+		$rowrutadia=mysqli_fetch_array($rutasdias);
 
-		$fecha = $rowruta["FechaES"];
+		$fecha = $rowrutadia["Fecha"];
 
-		mysqli_free_result($rutas);
+		mysqli_free_result($rutasdias);
 
 		if ($opcion == "U"){
 			$query="select * from rutas_comentarios ";
@@ -20,7 +19,6 @@
 			$rutas=mysqli_query ($link, $query);
 			$rowcomentario=mysqli_fetch_array($rutas);
 
-			$fechaForm = $rowcomentario["Fecha"];
 			$comentarioES = $rowcomentario["ComentarioES"];
 			$comentarioCA = $rowcomentario["ComentarioCA"];
 			$comentarioEN = $rowcomentario["ComentarioEN"];
@@ -28,14 +26,8 @@
 	} 
 
 ?>
-	<h1><?= cambiarAcentos($fecha) ?></h1>
+	<h1><?= devolverFecha($fecha) ?></h1>
 	<form class="col s12" method="post" action="resultados.php">
-		<div class="row">
-			<div class="input-field col s12 m6">
-				<input type="text" class="datepicker" name="fecha" id="fecha" value="<?= $fechaForm ?>">
-				<label>Fecha</label>
-			</div>
-		</div>
 		<div class="row">
 			<div class="input-field col s12">
 				<textarea id="comentarioES" name="comentarioES" class="materialize-textarea"><?= $comentarioES ?></textarea>
@@ -60,7 +52,13 @@
 			</div>
 		</div>		
 
-		<input type="hidden" id="idRuta" name="idRuta" value="<?= $idRuta ?>"/>
+		<div class="row">
+			<div class="col s12" id="volverDias">
+				<a href="rutas_dias.php?idRuta=<?= $rowrutadia["IdRuta"] ?>">Volver</a>
+			</div>
+		</div>
+
+		<input type="hidden" id="idRutaDia" name="idRutaDia" value="<?= $idRutaDia ?>"/>
 		<input type="hidden" id="idRutaComentario" name="idRutaComentario" value="<?= $idRutaComentario ?>"/>
 		<input type="hidden" id="opcion" name="opcion" value="<?= $opcion ?>"/>
 		<input type="hidden" id="idPagina" name="idPagina" value="6"/>
@@ -68,16 +66,15 @@
 
 	<h2>Comentarios realizados</h2>
 <?php
-	$query="select rc.IdRuta, rc.IdRutaComentario, rc.Fecha, rc.ComentarioES ";
+	$query="select rc.IdRutaComentario, rc.IdRutaDia, rc.ComentarioES ";
 	$query.="from rutas_comentarios rc ";
-	$query.="where rc.IdRuta=".$idRuta;
+	$query.="where rc.IdRutaDia=".$idRutaDia;
 
 	$rutas_comentarios=mysqli_query ($link, $query);
 ?>
 
 	<table>
 		<tr>
-			<th>Fecha</th>
 			<th>Comentario</th>
 			<th>Eliminar</th>
 		<tr>
@@ -87,9 +84,8 @@
 		{
 ?>
 			<tr>
-				<td><a href="rutas_comentarios.php?idRutaComentario=<?= $ruta["IdRutaComentario"] ?>&idRuta=<?= $ruta["IdRuta"] ?>&opcion=U&idPagina=6"><?= $ruta["Fecha"] ?></a></td>
-				<td><?= $ruta["ComentarioES"] ?></td>
-				<td><a href="resultados.php?idRutaComentario=<?= $ruta["IdRutaComentario"] ?>&idRuta=<?= $idRuta ?>&opcion=D&idPagina=6">Eliminar</a></td>
+				<td><a href="rutas_comentarios.php?idRutaComentario=<?= $ruta["IdRutaComentario"] ?>&idRutaDia=<?= $ruta["IdRutaDia"] ?>&opcion=U&idPagina=6"><?= $ruta["ComentarioES"] ?></a></td>
+				<td><a href="resultados.php?idRutaComentario=<?= $ruta["IdRutaComentario"] ?>&opcion=D&idPagina=6">Eliminar</a></td>
 			</tr>
 <?php
 		} //while($ruta=mysqli_fetch_array($rutas_municipios, MYSQLI_BOTH))

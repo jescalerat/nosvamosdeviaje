@@ -22,6 +22,7 @@
 	} 
 
 ?>
+	<h1><?= cambiarAcentos($fecha) ?></h1>
 	<form class="col s12" method="post" action="resultados.php">
 		<div class="row">
 			<div class="input-field col s12 m6">

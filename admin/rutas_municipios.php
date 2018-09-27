@@ -5,9 +5,9 @@
 		<div class="col s3" id="menu">
 <?php					
 			$opcion = "N";
-			$idRuta = 0;
-			if(isset($_GET['idRuta'])){
-				$idRuta = $_GET['idRuta'];
+			$idRutaDia = 0;
+			if(isset($_GET['idRutaDia'])){
+				$idRutaDia = $_GET['idRutaDia'];
 			}
 
 			require_once("includes/menu.php");
