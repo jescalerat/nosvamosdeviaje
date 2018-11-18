@@ -9,14 +9,20 @@
 	$query.=" order by rm.Orden asc ";
 
 	$visitados=mysqli_query ($link, $query);
-
+?>
+	<table>
+<?php
 	while($visitado=mysqli_fetch_array($visitados, MYSQLI_BOTH))
 	{
 		$municipio = $visitado["Municipio"]." (".$visitado["Provincia"].")";
 ?>
-			<?= cambiarAcentos($municipio) ?>
-			</br>
+		<tr>
+			<td>
+				<?= cambiarAcentos($municipio) ?>
+			</td>
+		</tr>
 <?php
-		}		
-		mysqli_free_result($visitados);
+	}		
+	mysqli_free_result($visitados);
 ?>
+	</table>

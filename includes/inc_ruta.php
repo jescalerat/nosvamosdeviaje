@@ -66,7 +66,7 @@
 						<a href="#" onclick="llamada_prototype('paginas/ruta_dia.php?idRutaDia=<?= $dia['IdRutaDia'] ?>','principal');"><?= devolverFecha($dia["Fecha"]) ?></a>
 					</td>
 					<td>
-						<?= require_once("../includes/inc_ruta_municipios.php"); ?>
+						<?php require("../includes/inc_ruta_municipios.php"); ?>
 					</td>
 				</tr>
 <?php

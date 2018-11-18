@@ -61,6 +61,9 @@ if ($idioma==1) //Español
 	define ('_EMAIL','Email'); 
 	define ('_MENSAJE','Tu mensaje'); 
 	define ('_ENVIAR','Enviar'); 
+	define ('_ERROR','Error'); 
+	define ('_CORRECTO','Correcto'); 
+
 	define ('_INSTRUCCION1','Todos los campos son obligatorios'); 
 	define ('_INSTRUCCION2','En caso de error siga las instrucciones:'); 
 	define ('_ERROR1','Introduce un nombre o alias para poder comunicarme contigo'); 

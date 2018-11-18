@@ -149,10 +149,6 @@
 				}
 			}
 			mysqli_free_result($fotosBBDD);
-		} else if ($opcion == "U"){
-			$query="update comentarios set ComentarioES='".$comentarioES."', ComentarioCA='".$comentarioCA."', ComentarioEN='".$comentarioEN."' where IdComentario=".$idComentario;
-			mysqli_query ($link, $query);
-			print("Update: ".$query);
 		} else if ($opcion == "D"){
 			$query="delete from fotos where IdMunicipio=".$idMunicipio;
 			mysqli_query ($link, $query);

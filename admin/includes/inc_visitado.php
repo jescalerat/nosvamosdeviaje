@@ -14,6 +14,7 @@
 	$anyo = "";
 	$titulo = "";
 	$facebook = "";
+	$fecha = "";
 		
 	if (isset($_GET['idVisitado'])){
 		$idVisitado = $_GET['idVisitado'];
