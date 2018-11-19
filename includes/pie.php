@@ -31,11 +31,28 @@
 	mysqli_free_result($qcontador);
 	mysqli_free_result($qvisitas);
 ?>	
-		<h5><?=$contador?></h5>
-
-      <!--JavaScript at end of body for optimized loading-->
-      <script type="text/javascript" src="js/materialize.min.js"></script>
-	  <script type="text/javascript" src="js/funciones.js"></script>
-	  <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <div class="row">
+            <div class="col s5">
+                &nbsp;
+            </div>
+            <div class="col s2">
+                <h5><?=$contador?></h5>
+            </div>
+            <div class="col s5">
+                &nbsp;
+            </div>
+        </div>
+        <!--JavaScript at end of body for optimized loading-->
+        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <script type="text/javascript" src="js/funciones.js"></script>
+	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                var elems = document.querySelectorAll('.slider');
+                var options = {};
+                var instances = M.Slider.init(elems, options);
+            });
+        </script>
     </body>
   </html>
