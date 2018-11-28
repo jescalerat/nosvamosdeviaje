@@ -35,36 +35,39 @@
 	$query.=" from fotos f  ";
 	$query.=" where f.IdMunicipio = ".$idMunicipio;
 	$query.=" order by f.Orden asc ";
-	$fotos=mysqli_query ($link, $query);
-	
+	$fotosVisitados=mysqli_query ($link, $query);
+	$filasfotos=mysqli_num_rows($fotosVisitados);
+
 ?>
-<form class="col s12">
+<form class="col">
 	<div class="row">
-		<div class="col s12" id="comentario">
+		<div class="col" id="comentario">
 			<?= cambiarAcentos($comentarioText) ?>
 		</div>
 	</div>
-	<div class="row">
-		<div class="col s3" id="espacio1">
-		</div>
-		<div class="input-field col s6" id="fotos">
-			<div class="slider">
-				<ul class="slides">
-<?php
-					while($foto=mysqli_fetch_array($fotos, MYSQLI_BOTH))
-					{
+
+<?php 
+    $inicio = 0;
+    $registros = 10;
+    for ($x=0; $x < $filasfotos; $x++){
+        if ($x == 0 || $x % $registros == 0){
+            require("inc_visitados_galerias.php");
+            $inicio = $x + $registros + 1;
+        }
+    }
+    mysqli_free_result($fotosVisitados);
 ?>
-						<li>
-							<img src="<?= $foto["Foto"] ?>" width="250px" height="580px">
-						</li>
-					  
-<?php
-					} //while($foto=mysqli_fetch_array($fotos, MYSQLI_BOTH))
-?>
-				</ul>
-			</div>
-		</div>
-		<div class="col s3" id="espacio2">
-		</div>
-	</div>
+
+<script>
+	function antes (galeria){
+		var id = '#carouselVisitados'+galeria;
+		$(id).carousel('prev');
+	}
+
+	function despues (galeria){
+		var id = '#carouselVisitados'+galeria;
+		$(id).carousel('next');
+	}
+
+</script>
 </form>

@@ -6,7 +6,7 @@
 		$link=Conectarse();
 	}
 ?>
-	<table>
+	<table class="table">
 		
 <?php	
 	
@@ -78,9 +78,11 @@
 			$mostrarTituloComunidad = 0;
 			$idComunidadPost = $idComunidad;
 ?>
-		<tr>
-			<td colspan="2"><center><?= $tituloComunidad ?></center></td>	
-		</tr>
+		<thead class="thead-dark">
+    		<tr>
+				<th scope="col" colspan="2"><center><?= $tituloComunidad ?></center></th>	
+			</tr>
+		</thead>
 <?php 
 		} //if ($mostrarTituloComunidad == 1){
 
@@ -88,9 +90,11 @@
 			$mostrarTituloProvincia = 0;
 			$idProvinciaPost = $idProvincia;
 ?>
-		<tr>
-			<td colspan="2"><center><?= $tituloProvincia ?></center></td>	
-		</tr>
+		<thead class="thead-light">
+    		<tr>
+				<th scope="col" colspan="2"><center><?= $tituloProvincia ?></center></th>	
+			</tr>
+		</thead>
 <?php 
 		}  //if ($mostrarTituloProvincia == 1){
 ?>	

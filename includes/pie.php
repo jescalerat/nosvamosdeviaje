@@ -43,16 +43,13 @@
             </div>
         </div>
         <!--JavaScript at end of body for optimized loading-->
-        <script type="text/javascript" src="js/materialize.min.js"></script>
+        <!-- <script type="text/javascript" src="../js/materialize.min.js"></script> -->
+        <script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
+        <script type="text/javascript" src="js/bootstrap.min.js"></script>
         <script type="text/javascript" src="js/funciones.js"></script>
-	<script type="text/javascript" src="js/jquery-3.2.1.min.js"></script>
         
-        <script>
-            document.addEventListener('DOMContentLoaded', function() {
-                var elems = document.querySelectorAll('.slider');
-                var options = {};
-                var instances = M.Slider.init(elems, options);
-            });
-        </script>
+
+        
+        
     </body>
   </html>
