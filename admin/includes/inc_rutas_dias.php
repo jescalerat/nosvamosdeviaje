@@ -22,40 +22,43 @@
 	} 
 
 ?>
-	<h1><?= cambiarAcentos($fecha) ?></h1>
-	<form class="col s12" method="post" action="resultados.php">
-		<div class="row">
-			<div class="input-field col s12 m6">
-				<input type="text" class="datepicker" name="fecha" id="fecha" value="<?= $fechaForm ?>">
-				<label>Fecha</label>
-			</div>
-		</div>
+	<h1 class="text-center"><?= cambiarAcentos($fecha) ?></h1>
+	<form class="form-horizontal" role="form" method="post" action="resultados.php">
+		<div class="form-group">
+        	<label class="col control-label" for="fecha">
+        		Fecha
+        	</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="date" name="fecha" id="fecha" value="<?= $fecha ?>">
+            </div>
+        </div>
+	
 <?php		
 		if ($idRutaDia != "" && $idRutaDia != "undefined"){
 ?>
 			<div class="row">
-				<div class="col s6" id="addMunicipios">
+				<div class="col-6" id="addMunicipios">
 					<a href="rutas_municipios.php?idRutaDia=<?= $idRutaDia ?>">Añadir municipios</a>
 				</div>
-				<div class="col s6" id="addComentarios">
+				<div class="col-6" id="addComentarios">
 					<a href="rutas_comentarios.php?idRutaDia=<?= $idRutaDia ?>">Añadir comentarios</a>
 				</div>
 			</div>
 <?php
 		}
 ?>
-		<div class="row">
-			<div class="col s12" id="botonEnvio">
-				<button>Enviar Mensaje</button>
-			</div>
-		</div>
+		<div class="form-group">
+            <div class="col">
+                <p class="text-center"><button type="button" class="btn btn-default">Enviar Mensaje</button></p>
+            </div>
+        </div>
 		<input type="hidden" id="idRuta" name="idRuta" value="<?= $idRuta ?>"/>
 		<input type="hidden" id="idRutaDia" name="idRutaDia" value="<?= $idRutaDia ?>"/>
 		<input type="hidden" id="opcion" name="opcion" value="<?= $opcion ?>"/>
 		<input type="hidden" id="idPagina" name="idPagina" value="7"/>
 	</form>
 
-	<h2>Dias realizados</h2>
+	<h2 class="text-center">Dias realizados</h2>
 <?php
 	$query="select * ";
 	$query.="from rutas_dias ";
@@ -64,11 +67,13 @@
 	$rutas_dias=mysqli_query ($link, $query);
 ?>
 
-	<table>
-		<tr>
-			<th>Fecha</th>
-			<th>Eliminar</th>
-		<tr>
+	<table class="table">
+		<thead class="thead-dark">
+    		<tr>
+    			<th>Fecha</th>
+    			<th>Eliminar</th>
+    		</tr>
+    	</thead>
 
 <?php
 		while($dia=mysqli_fetch_array($rutas_dias, MYSQLI_BOTH))

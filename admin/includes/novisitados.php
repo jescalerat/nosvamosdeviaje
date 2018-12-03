@@ -1,4 +1,4 @@
-﻿<table border="0" class="w100">
+﻿<table class="table">
 <?php	
 	
 	$query="select c.IdComunidad, c.Comunidad, p.IdProvincia, p.Provincia, m.IdMunicipio, m.Municipio  ";
@@ -21,10 +21,8 @@
 		$idMunicipioVisitado=$municipio["IdMunicipio"];
 ?>
 			<tr>
-				<td class="w100">
-					<center>
-						<a class="admin" href="visitado.php?idMunicipioVisitado=<?= $idMunicipioVisitado ?>&opcion=N"><?= $tituloMunicipio ?></a>
-					</center>
+				<td class="text-center">
+					<a href="visitado.php?idMunicipioVisitado=<?= $idMunicipioVisitado ?>&opcion=N"><?= $tituloMunicipio ?></a>
 				</td>
 			</tr>
 <?php			

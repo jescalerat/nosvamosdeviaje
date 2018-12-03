@@ -12,11 +12,13 @@
 		$link=Conectarse();
 	}
 ?>
-	<table border="1" class="w100">
-		<tr>
-			<th class="w50" align="center"><h1><?php print(cambiarAcentos(strtoupper("Visitados")));?></h1></td>
-			<th class="w50" align="center"><h1><?php print(cambiarAcentos(strtoupper("No visitados")));?></h1></td>
-		</tr>
+	<table class="table">
+		<thead>
+    		<tr>
+				<th scope="col"><h1 class="text-center"><?= cambiarAcentos(strtoupper("Visitados")) ?></h1></th>
+				<th scope="col"><h1 class="text-center"><?= cambiarAcentos(strtoupper("No visitados")) ?></h1></th>
+			</tr>
+		</thead>
 <?php	
 	
 	$idPais = 0;
@@ -70,30 +72,19 @@
 			$idComunidad=$provincia["IdComunidad"];
 			$tituloProvincia=strtoupper($provincia["Provincia"]);
 			$idProvincia=$provincia["IdProvincia"];
-				
-			//Cambiar ids por el nombre del equipo
-			/*$equipo1=$principal["Equipo1"];
-			$equipo2=$principal["Equipo2"];
-
-			$query="select * from equipos where IdEquipo=".$equipo1;
-			$q_equipo1=mysqli_query($link, $query);
-			$rowequipo1=mysqli_fetch_array($q_equipo1);
-
-			$query="select * from equipos where IdEquipo=".$equipo2;
-			$q_equipo2=mysqli_query($link, $query);
-			$rowequipo2=mysqli_fetch_array($q_equipo2);
-			
-			$equipos=cambiarAcentos($rowequipo1["NombreEquipo"])." ".$principal["SubCategoriaLocal"]." - ".cambiarAcentos($rowequipo2["NombreEquipo"])." ".$principal["SubCategoriaVisitante"];
-
-			$resultados=$principal["ResultEquipo1"]."-".$principal["ResultEquipo2"];*/
 
 ?>
-		<tr>
-			<td colspan="2" class="w100"><center><?php print($tituloComunidad);?></center></td>	
-		</tr>
-		<tr>
-			<td colspan="2" class="w100"><center><?= $tituloProvincia ?></center></td>	
-		</tr>
+		<thead class="thead-dark">
+    		<tr>
+				<th scope="col" colspan="2"><p class="text-center"><?= $tituloComunidad ?></p></th>
+			</tr>
+		</thead>
+		<thead class="thead-light">
+    		<tr>
+				<th scope="col" colspan="2"><p class="text-center"><?= $tituloProvincia ?></p></th>
+			</tr>
+		</thead>
+		
 		<tr>
 			<td style="vertical-align:top"><?php include("visitados.php"); ?></td>
 			<td style="vertical-align:top"><?php include("novisitados.php"); ?></td>

@@ -37,38 +37,42 @@
 	}
 ?>
 
-<h1><?= $municipio ?></h1>
+<h1 class="text-center"><?= $municipio ?></h1>
 <div id="formulario" class="formulario">
-	<form class="col s12" method="post" action="resultados.php">
-        <fieldset>
-			<div class="row">
-				<div class="input-field col s12 m6">
-					<input type="text" class="datepicker" name="fecha" id="fecha" value="<?= $fecha ?>">
-					<label>Fecha</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					<input type="text" class="validate" name="titulo" id="titulo" value="<?= $titulo ?>">
-					<label for="titulo">Titulo</label>
-				</div>
-			</div>
-			<div class="row">
-				<div class="input-field col s12">
-					<input type="text" class="validate" name="facebook" id="facebook" value="<?= $facebook ?>">
-					<label for="titulo">Facebook</label>
-				</div>
-			</div>
+	<form class="form-horizontal" role="form" method="post" action="resultados.php">
+		<div class="form-group">
+        	<label class="col control-label" for="fecha">
+        		Fecha
+        	</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="date" name="fecha" id="fecha" value="<?= $fecha ?>">
+            </div>
+        </div>
+        <div class="form-group">
+        	<label class="col control-label" for="titulo">
+        		Titulo
+        	</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="titulo" id="titulo" value="<?= $titulo ?>">
+            </div>
+        </div>
+        <div class="form-group">
+        	<label class="col control-label" for="facebook">
+        		Facebook
+        	</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="facebook" id="facebook" value="<?= $facebook ?>">
+            </div>
+        </div>
+        <div class="form-group">
+            <div class="col">
+                <p class="text-center"><button type="button" class="btn btn-default">Enviar Mensaje</button></p>
+            </div>
+        </div>
 
-			<div class="row">
-				<div class="col s12" id="botonEnvio">
-					<button>Enviar Mensaje</button>
-				</div>
-			</div>
-        </fieldset>
 		<input type="hidden" class="idMunVisitado" name="idMunVisitado" value="<?= $idMunicipioVisitado ?>"/>
 		<input type="hidden" class="idVisitado" name="idVisitado" value="<?= $idVisitado ?>"/>
 		<input type="hidden" class="opcion" name="opcion" value="<?= $opcion ?>"/>
 		<input type="hidden" id="idPagina" name="idPagina" value="1"/>
-     </form>
+	</form>
 </div>

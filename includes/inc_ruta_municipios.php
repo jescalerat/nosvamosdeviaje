@@ -10,7 +10,7 @@
 
 	$visitados=mysqli_query ($link, $query);
 ?>
-	<table>
+	<table class="table">
 <?php
 	while($visitado=mysqli_fetch_array($visitados, MYSQLI_BOTH))
 	{

@@ -11,7 +11,7 @@ $fotos2=mysqli_query ($link, $query);
 	
 	<div class="row">
 		<div class="col-3" id="blancoizquierdo<?= $inicio ?>">
-			<a href="#" onclick="antes(<?= $inicio ?>)">Antes</a>
+			<p class="text-right"><a href="#" onclick="antes('#carouselVisitados<?= $inicio ?>')"><?= _ANTERIOR ?></a></p>
 		</div>
 		
 		<div class="col-6" id="fotos<?= $inicio ?>">
@@ -28,7 +28,7 @@ $fotos2=mysqli_query ($link, $query);
 <?php
                         } else {
 ?>
-							<li data-target="#carouselVisitados<?= $inicio ?>" data-slide-to="<?= $cont++ ?>"></li>
+							<li data-target="#carouselVisitados<?= $inicio ?>" data-slide-to="<?= $cont ?>"></li>
 <?php
                         }
                         $cont++;
@@ -44,13 +44,13 @@ $fotos2=mysqli_query ($link, $query);
                         if ($cont == 0){
 ?>
             				<div class="carousel-item active">
-            					<img class="first-slide w-100" src="<?= $foto["Foto"] ?>" alt="<?= $foto["Orden"] ?>" title="<?= $foto["Orden"] ?>">
+            					<img class="first-slide d-block w-100" src="<?= $foto["Foto"] ?>" alt="<?= $foto["Orden"] ?>" title="<?= $foto["Orden"] ?>">
             				</div>
 <?php
                         } else {
 ?>
             				<div class="carousel-item">
-            					<img class="w-100" src="<?= $foto["Foto"] ?>" alt="<?= $foto["Orden"] ?>" title="<?= $foto["Orden"] ?>">
+            					<img class="d-block w-100" src="<?= $foto["Foto"] ?>" alt="<?= $foto["Orden"] ?>" title="<?= $foto["Orden"] ?>">
             				</div>
 <?php
                         }
@@ -60,23 +60,15 @@ $fotos2=mysqli_query ($link, $query);
                     mysqli_free_result($fotos2);
 ?>
 				</div>
-        		<a class="carousel-control-prev" href="#carouselVisitados<?= $inicio ?>" role="button" data-slide="prev">
-                  <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                <a class="carousel-control-next" href="#carouselVisitados<?= $inicio ?>" role="button" data-slide="next">
-                  <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                  <span class="sr-only">Next</span>
-                </a>
 			</div> <!-- id="carouselVisitados" -->
 		</div> <!-- id="fotos" -->
 		<div class="col-3" id="blancoderecho<?= $inicio ?>">
-			<a href="#" onclick="despues(<?= $inicio ?>)">Despues</a>
+			<a href="#" onclick="despues('#carouselVisitados<?= $inicio ?>')"><?= _POSTERIOR ?></a>
 		</div>
 	</div> <!-- row -->
 <script>
 
-	$('.carouselVisitados<?= $inicio ?>').carousel({
-		interval: 1000
+	$('#carouselVisitados<?= $inicio ?>').carousel({
+		interval: 2000
 	});
 </script>

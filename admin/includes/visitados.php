@@ -1,4 +1,4 @@
-﻿<table border="1" class="w100">
+﻿<table class="table">
 <?php	
 	
 	$query="select c.IdComunidad, c.Comunidad, p.IdProvincia, p.Provincia, m.IdMunicipio, m.Municipio, v.Fecha, v.IdVisitado  ";
@@ -22,10 +22,10 @@
 ?>
 			<tr>
 				<td>
-					<a class="admin" href="visitado.php?idVisitado=<?= $idMunicipioVisitado ?>&opcion=U"><?= $tituloMunicipio ?></a>
+					<a href="visitado.php?idVisitado=<?= $idMunicipioVisitado ?>&opcion=U"><?= $tituloMunicipio ?></a>
 				</td>
-				<td>
-					<center><?= $municipio["Fecha"] ?></center>
+				<td class="text-center">
+					<?= $municipio["Fecha"] ?>
 				</td>
 				<td>
 					<a href="resultados.php?idVisitado=<?= $idMunicipioVisitado ?>&opcion=D&idPagina=1">Eliminar</a>

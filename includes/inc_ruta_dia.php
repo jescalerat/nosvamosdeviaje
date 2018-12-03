@@ -15,9 +15,9 @@
 	mysqli_free_result($diaruta);
 ?>
 
-<form class="col s12">
+<form class="col">
 	<div class="row">
-		<div class="col s12" id="titulo">
+		<div class="col" id="titulo">
 			<h1><?= devolverFecha($titulo) ?></h1>
 		</div>
 	</div>
@@ -46,7 +46,7 @@
 ?>
 
 <div class="row">
-	<div class="col s12" id="rutas">
+	<div class="col" id="rutas">
 		<?= cambiarAcentos($comentario) ?>
 	</div>
 </div>

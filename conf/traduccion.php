@@ -113,11 +113,14 @@ if ($idioma==1) //Español
 	//Rutas
 	define ('_RUTASTITULO','Rutas');
 
-	//Ruta
+	//Ruta dia
 	define ('_RUTADIA','Día');
 	define ('_RUTAMUNICIPIOS','Municipios visitados');
 	
-
+	//Visitados
+	define ('_ANTERIOR','Anterior');
+	define ('_POSTERIOR','Posterior');
+	
 
 }
 else if ($idioma==2) //Inglés

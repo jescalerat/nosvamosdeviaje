@@ -10,7 +10,11 @@
         	</div>
     	</div>
 		<div class="row">
-            <div class="col" id="principal">Principal</div>
+            <div class="col" id="principal">
+<?php
+              require_once("/includes/inc_principal.php");
+?>
+            </div>
         </div>
 		<div class="row">
             <div class="col" id="pie">

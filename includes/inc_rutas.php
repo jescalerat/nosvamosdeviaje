@@ -1,6 +1,6 @@
-﻿<form class="col s12">
+﻿<form class="col">
 	<div class="row">
-		<div class="col 12" id="titulo">
+		<div class="col" id="titulo">
 			<h1><?= cambiarAcentos(mb_strtoupper(_RUTASTITULO)) ?></h1>
 		</div>
 	</div>

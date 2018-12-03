@@ -59,14 +59,20 @@
 ?>
 
 <script>
-	function antes (galeria){
-		var id = '#carouselVisitados'+galeria;
+	function antes (id){
+		var posicion = $(id).offset().top - 50;
 		$(id).carousel('prev');
+		$('html, body').animate({
+			scrollTop: posicion
+		}, 2000);
 	}
 
-	function despues (galeria){
-		var id = '#carouselVisitados'+galeria;
+	function despues (id){
+		var posicion = $(id).offset().top - 50;
 		$(id).carousel('next');
+		$('html, body').animate({
+			scrollTop: posicion
+		}, 2000);
 	}
 
 </script>

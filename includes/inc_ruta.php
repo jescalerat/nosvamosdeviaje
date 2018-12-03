@@ -46,8 +46,8 @@
 ?>
 
 <div class="row">
-	<div class="col s12" id="rutas">
-		<table>
+	<div class="col" id="rutas">
+		<table class="table">
 			<tr>
 				<th>		
 					<?= cambiarAcentos(_RUTADIA) ?>

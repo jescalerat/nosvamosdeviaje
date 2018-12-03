@@ -3,11 +3,13 @@
 	$rutas=mysqli_query ($link, $query);
 
 ?>
-	<table>
-		<tr>
-			<th>Fecha</th>
-			<th>Eliminar</th>
-		<tr>
+	<table class="table">
+		<thead class="thead-dark">
+    		<tr>
+    			<th>Fecha</th>
+    			<th>Eliminar</th>
+	    	</tr>
+    	</thead>
 
 <?php
 		while($ruta=mysqli_fetch_array($rutas, MYSQLI_BOTH))

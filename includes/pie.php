@@ -32,13 +32,13 @@
 	mysqli_free_result($qvisitas);
 ?>	
         <div class="row">
-            <div class="col s5">
+            <div class="col-5">
                 &nbsp;
             </div>
-            <div class="col s2">
-                <h5><?=$contador?></h5>
+            <div class="col-2">
+                <h5 class="text-center"><?=$contador?></h5>
             </div>
-            <div class="col s5">
+            <div class="col-5">
                 &nbsp;
             </div>
         </div>
