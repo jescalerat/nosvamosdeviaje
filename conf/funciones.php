@@ -240,6 +240,15 @@ function devolverFecha($fecha)
 	return $fechaTraducida;
 }
 
+function devolverFechaLista($fecha)
+{
+    $dia=devolverDia($fecha);
+    $mes=devolverMes($fecha);
+    $any=devolverAny($fecha);
+    $fechaTraducida=$dia."-".$mes."-".$any;
+    return $fechaTraducida;
+}
+
 function cambiarAcentos($cadena) {
 	$long=strlen($cadena);
 	$devuelveCadena="";

@@ -56,7 +56,7 @@
 ?>
 		<div class="form-group">
             <div class="col">
-                <p class="text-center"><button type="button" class="btn btn-default">Enviar Mensaje</button></p>
+                <p class="text-center"><button type="submit" class="btn btn-default">Enviar Mensaje</button></p>
             </div>
         </div>
 		

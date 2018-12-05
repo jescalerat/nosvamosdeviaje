@@ -262,13 +262,6 @@
 		} else if (isset($_GET['fecha'])){
 			$fecha = $_GET['fecha'];
 		}
-		if ($fecha != ""){
-			$fechaArray = explode('/', $fecha);
-			$dia = $fechaArray[0];
-			$mes = $fechaArray[1];
-			$anyo = $fechaArray[2];
-			$fechaBBDD = $anyo."-".$mes."-".$dia;
-		}
 		
 		if ($opcion == "N"){
 			$query="select max(IdRutaDia) as IdRutaDia  ";
@@ -278,12 +271,12 @@
 			$rowmaxid=mysqli_fetch_array($rutasDiasBBDD);
 			$idRutaDia = $rowmaxid["IdRutaDia"] + 1;
 
-			$query="insert into rutas_dias (IdRutaDia, IdRuta, Fecha) values (".$idRutaDia.", ".$idRuta.", '".$fechaBBDD."')";
+			$query="insert into rutas_dias (IdRutaDia, IdRuta, Fecha) values (".$idRutaDia.", ".$idRuta.", '".$fecha."')";
 			mysqli_query ($link, $query);
 			print("<br>".$query.";");
 			mysqli_free_result($rutasDiasBBDD);
 		} else if ($opcion == "U"){
-			$query="update rutas_dias set Fecha='".$fechaBBDD."' where IdRutaDia=".$idRutaDia;
+			$query="update rutas_dias set Fecha='".$fecha."' where IdRutaDia=".$idRutaDia;
 			mysqli_query ($link, $query);
 			print("Update: ".$query);
 		} else if ($opcion == "D"){

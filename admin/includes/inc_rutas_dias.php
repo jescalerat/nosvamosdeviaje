@@ -29,7 +29,7 @@
         		Fecha
         	</label>
             <div class="col-sm-10">
-                <input class="form-control" type="date" name="fecha" id="fecha" value="<?= $fecha ?>">
+                <input class="form-control" type="date" name="fecha" id="fecha" value="<?= $fechaForm ?>">
             </div>
         </div>
 	
@@ -47,11 +47,12 @@
 <?php
 		}
 ?>
-		<div class="form-group">
+        <div class="form-group">
             <div class="col">
-                <p class="text-center"><button type="button" class="btn btn-default">Enviar Mensaje</button></p>
+                <p class="text-center"><button type="submit" class="btn btn-default">Enviar Mensaje</button></p>
             </div>
         </div>
+        
 		<input type="hidden" id="idRuta" name="idRuta" value="<?= $idRuta ?>"/>
 		<input type="hidden" id="idRutaDia" name="idRutaDia" value="<?= $idRutaDia ?>"/>
 		<input type="hidden" id="opcion" name="opcion" value="<?= $opcion ?>"/>
@@ -80,7 +81,7 @@
 		{
 ?>
 			<tr>
-				<td><a href="rutas_dias.php?idRutaDia=<?= $dia["IdRutaDia"] ?>&idRuta=<?= $dia["IdRuta"] ?>&opcion=U&idPagina=7"><?= $dia["Fecha"] ?></a></td>
+				<td><a href="rutas_dias.php?idRutaDia=<?= $dia["IdRutaDia"] ?>&idRuta=<?= $dia["IdRuta"] ?>&opcion=U&idPagina=7"><?= devolverFechaLista($dia["Fecha"]) ?></a></td>
 				<td><a href="resultados.php?idRutaDia=<?= $dia["IdRutaDia"] ?>&idRuta=<?= $idRuta ?>&opcion=D&idPagina=7">Eliminar</a></td>
 			</tr>
 <?php

@@ -26,34 +26,30 @@
 	} 
 
 ?>
-	<h1><?= devolverFecha($fecha) ?></h1>
-	<form class="col s12" method="post" action="resultados.php">
-		<div class="row">
-			<div class="input-field col s12">
-				<textarea id="comentarioES" name="comentarioES" class="materialize-textarea"><?= $comentarioES ?></textarea>
-				<label for="comentarioES">Español</label>
-			</div>
+	<h1 class="text-center"><?= devolverFecha($fecha) ?></h1>
+	<form class="form-horizontal" role="form" method="post" action="resultados.php">
+		<div class="form-group">
+			<label for="comentarioES">Español</label>
+			<textarea id="comentarioES" name="comentarioES" class="form-control" rows="3" cols="80"><?= $comentarioES ?></textarea>
 		</div>
-		<div class="row">
-			<div class="input-field col s12">
-				<textarea id="comentarioCA" name="comentarioCA" class="materialize-textarea"><?= $comentarioCA ?></textarea>
-				<label for="comentarioCA">Catalan</label>
-			</div>
+		<div class="form-group">
+			<label for="comentarioCA">Catalan</label>
+			<textarea id="comentarioCA" name="comentarioCA" class="form-control" rows="3" cols="80"><?= $comentarioCA ?></textarea>
 		</div>
-		<div class="row">
-			<div class="input-field col s12">
-				<textarea id="comentarioEN" name="comentarioEN" class="materialize-textarea"><?= $comentarioEN ?></textarea>
-				<label for="comentarioEN">Ingles</label>
-			</div>
+		<div class="form-group">
+			<label for="comentarioEN">Ingles</label>
+			<textarea id="comentarioEN" name="comentarioEN" class="form-control" rows="3" cols="80"><?= $comentarioEN ?></textarea>
 		</div>
-		<div class="row">
-			<div class="col s12" id="botonEnvio">
-				<button>Enviar Mensaje</button>
-			</div>
-		</div>		
+
+		<div class="form-group">
+            <div class="col">
+                <p class="text-center"><button type="submit" class="btn btn-default">Enviar Mensaje</button></p>
+            </div>
+        </div>
+    		
 
 		<div class="row">
-			<div class="col s12" id="volverDias">
+			<div class="col" id="volverDias">
 				<a href="rutas_dias.php?idRuta=<?= $rowrutadia["IdRuta"] ?>">Volver</a>
 			</div>
 		</div>
@@ -64,7 +60,7 @@
 		<input type="hidden" id="idPagina" name="idPagina" value="6"/>
 	</form>
 
-	<h2>Comentarios realizados</h2>
+	<h2 class="text-center">Comentarios realizados</h2>
 <?php
 	$query="select rc.IdRutaComentario, rc.IdRutaDia, rc.ComentarioES ";
 	$query.="from rutas_comentarios rc ";
@@ -73,11 +69,13 @@
 	$rutas_comentarios=mysqli_query ($link, $query);
 ?>
 
-	<table>
-		<tr>
-			<th>Comentario</th>
-			<th>Eliminar</th>
-		<tr>
+	<table class="table">
+		<thead class="thead-dark">
+    		<tr>
+    			<th>Comentario</th>
+    			<th>Eliminar</th>
+    		</tr>
+    	</thead>
 
 <?php
 		while($ruta=mysqli_fetch_array($rutas_comentarios, MYSQLI_BOTH))

@@ -2,7 +2,7 @@
 	<table>
 		<tr>
 			<td valign="top">
-				<center><h2 class="admin"><!--<? //$_SESSION['nombre'] ?>--></h2></center>
+				<h2 class="text-center"><!--<? //$_SESSION['nombre'] ?>--></h2>
 				<table>
 					<tr>
 						<th>

@@ -6,27 +6,26 @@
 
 ?>
 
-<h1><?= $municipio ?></h1>
-<form class="col s12" method="post" action="resultados.php">
-	<div class="row">
-		<div class="input-field col s12">
-			<textarea id="fotos" name="fotos" class="materialize-textarea"></textarea>
-			<label for="fotos">Fotos</label>
-		</div>
+<h1 class="text-center"><?= $municipio ?></h1>
+<form class="form-horizontal" role="form" method="post" action="resultados.php">
+	<div class="form-group">
+		<label for="comentarioES">Fotos</label>
+		<textarea id="fotos" name="fotos" class="form-control" rows="3" cols="80"></textarea>
 	</div>
-	<div class="row">
-		<div class="col s12" id="botonEnvio">
-			<button>Enviar Mensaje</button>
-		</div>
-	</div>
+	
+	<div class="form-group">
+        <div class="col">
+            <p class="text-center"><button type="submit" class="btn btn-default">Enviar Mensaje</button></p>
+        </div>
+    </div>
 
 	<input type="hidden" id="idMunicipio" name="idMunicipio" value="<?= $idMunicipio ?>"/>
 	<input type="hidden" id="opcion" name="opcion" value="<?= $opcion ?>"/>
 	<input type="hidden" id="idPagina" name="idPagina" value="4"/>
 </form>
 
-<h1>Sin Fotos</h1>
-<table>
+<h1 class="text-center">Sin Fotos</h1>
+<table class="table">
 <?php	
 	
 	$query="select c.IdComunidad, c.Comunidad, p.IdProvincia, p.Provincia, m.IdMunicipio, m.Municipio, v.Fecha, v.IdVisitado  ";
@@ -68,9 +67,11 @@
 			$mostrarTituloComunidad = 0;
 			$idComunidadPost = $idComunidad;
 ?>
-		<tr>
-			<td colspan="2"><center><?= $tituloComunidad ?></center></td>	
-		</tr>
+			<thead class="thead-dark">
+        		<tr>
+        			<th scope="col" colspan="2"><p class="text-center"><?= $tituloComunidad ?></p></th>	
+        		</tr>
+        	</thead>
 <?php 
 		} //if ($mostrarTituloComunidad == 1){
 
@@ -78,9 +79,11 @@
 			$mostrarTituloProvincia = 0;
 			$idProvinciaPost = $idProvincia;
 ?>
-		<tr>
-			<td colspan="2"><center><?= $tituloProvincia ?></center></td>	
-		</tr>
+			<thead class="thead-light">
+    			<tr>
+        			<th scope="col" colspan="2"><p class="text-center"><?= $tituloProvincia ?></p></th>	
+        		</tr>
+        	</thead>
 <?php 
 		}  //if ($mostrarTituloProvincia == 1){
 ?>	
@@ -96,8 +99,8 @@
 ?>
 </table>
 
-<h1>Con Fotos</h1>
-<table>
+<h1 class="text-center">Con Fotos</h1>
+<table class="table">
 <?php	
 	
 	$query="select distinct c.IdComunidad, c.Comunidad, p.IdProvincia, p.Provincia, m.IdMunicipio, m.Municipio, v.Fecha, v.IdVisitado  ";
@@ -139,9 +142,11 @@
 			$mostrarTituloComunidad = 0;
 			$idComunidadPost = $idComunidad;
 ?>
-		<tr>
-			<td colspan="3"><center><?= $tituloComunidad ?></center></td>	
-		</tr>
+			<thead class="thead-dark">
+        		<tr>
+        			<th scope="col" colspan="3"><p class="text-center"><?= $tituloComunidad ?></p></th>	
+        		</tr>
+        	</thead>
 <?php 
 		} //if ($mostrarTituloComunidad == 1){
 
@@ -149,9 +154,11 @@
 			$mostrarTituloProvincia = 0;
 			$idProvinciaPost = $idProvincia;
 ?>
-		<tr>
-			<td colspan="3"><center><?= $tituloProvincia ?></center></td>	
-		</tr>
+			<thead class="thead-light">
+        		<tr>
+        			<th scope="col" colspan="3"><p class="text-center"><?= $tituloProvincia ?></p></th>	
+        		</tr>
+        	</thead>
 <?php 
 		}  //if ($mostrarTituloProvincia == 1){
 ?>	
