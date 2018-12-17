@@ -1,7 +1,7 @@
 ﻿<form class="col">
 	<div class="row">
 		<div class="col" id="titulo">
-			<h1><?= cambiarAcentos(mb_strtoupper(_RUTASTITULO)) ?></h1>
+			<h1 class="text-center"><?= cambiarAcentos(mb_strtoupper(_RUTASTITULO)) ?></h1>
 		</div>
 	</div>
 <?php
@@ -21,17 +21,17 @@
 	$rutas=mysqli_query ($link, $query);
 ?>
 
-	<div class="collection">
+	
 <?php
 	while($ruta=mysqli_fetch_array($rutas, MYSQLI_BOTH))
 	{
 		$titulo=$ruta["Titulo"];
 		
 ?>
-		<a href="#" class="collection-item" onclick="llamada_prototype('paginas/ruta.php?idRuta=<?= $ruta["IdRuta"] ?>','principal');"><?= cambiarAcentos($titulo) ?></a>
+		<a href="#" class="list-group-item" onclick="llamada_prototype('paginas/ruta.php?idRuta=<?= $ruta["IdRuta"] ?>','principal');"><?= cambiarAcentos($titulo) ?></a>
 <?php
 	}		
 	mysqli_free_result($rutas);
 ?>
-	</div>
+	
 </form>

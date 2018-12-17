@@ -18,7 +18,7 @@
 <form class="col">
 	<div class="row">
 		<div class="col" id="titulo">
-			<h1><?= devolverFecha($titulo) ?></h1>
+			<h1 class="text-center"><?= devolverFecha($titulo) ?></h1>
 		</div>
 	</div>
 </form>
@@ -64,15 +64,13 @@
 	$visitados=mysqli_query ($link, $query);
 ?>
 
-	<div class="collection">
 <?php
-		while($visitado=mysqli_fetch_array($visitados, MYSQLI_BOTH))
-		{
-			$municipio = $visitado["Municipio"]." (".$visitado["Provincia"].")";
+	while($visitado=mysqli_fetch_array($visitados, MYSQLI_BOTH))
+	{
+		$municipio = $visitado["Municipio"]." (".$visitado["Provincia"].")";
 ?>
-			<a href="#" class="collection-item" onclick="llamada_prototype('paginas/visitados.php?idVisitado=<?= $visitado['IdVisitado'] ?>','principal');"><?= cambiarAcentos($municipio) ?></a>
+		<a href="#" class="list-group-item" onclick="llamada_prototype('paginas/visitados.php?idVisitado=<?= $visitado['IdVisitado'] ?>','principal');"><?= cambiarAcentos($municipio) ?></a>
 <?php
-		}		
-		mysqli_free_result($visitados);
+	}		
+	mysqli_free_result($visitados);
 ?>
-	</div>

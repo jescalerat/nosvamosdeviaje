@@ -1,36 +1,40 @@
-<div class="row">
-	<form class="col" method="post" action="paginas/contactar2.php">
+<div class="container">
+	<form role="form" id="needs-validation" method="post" action="paginas/contactar2.php">
 		<div class="row">
 			<div class="input-field col">
-				<h1><?= strtoupper(_TITULO) ?></h1>
+				<h1 class="text-center"><?= strtoupper(_TITULO) ?></h1>
 			</div>
 		</div>
-		<div class="row">
-			<div class="input-field col">
-				<input id="nombre" type="text" class="validate">
-				<label for="nombre"><?= cambiarAcentos(_INTRODUCENOMBRE) ?></label>
-				<span class="helper-text" data-error="<?= cambiarAcentos(_ERROR) ?>" data-success="<?= cambiarAcentos(_CORRECTO) ?>"></span>
-			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col">
-				<input id="email" type="email" class="validate">
-				<label for="email"><?= cambiarAcentos(_EMAIL) ?></label>
-				<span class="helper-text" data-error="<?= cambiarAcentos(_ERROR) ?>" data-success="<?= cambiarAcentos(_CORRECTO) ?>"></span>
-			</div>
-		</div>
-		<div class="row">
-			<div class="input-field col">
-				<textarea id="mensaje" name="mensaje" class="materialize-textarea"></textarea>
-				<label for="mensaje"><?= cambiarAcentos(_MENSAJE) ?></label>
-				<span class="helper-text" data-error="<?= cambiarAcentos(_ERROR) ?>" data-success="<?= cambiarAcentos(_CORRECTO) ?>"></span>
-			</div>
-		</div>
-		<div class="row">
-			<div class="col" id="botonEnvio">
-				<button><?= cambiarAcentos(_ENVIAR) ?></button>
-			</div>
-		</div>
+		<div class="form-group">
+        	<label class="col control-label" for="nombre">
+        		<?= cambiarAcentos(_INTRODUCENOMBRE) ?>
+        	</label>
+        	<div class="col-sm-10">
+            	<input class="form-control" type="text" name="nombre" id="nombre" required="required" autofocus>
+            </div>
+        </div>
+        <div class="form-group">
+        	<label class="col control-label" for="email">
+        		<?= cambiarAcentos(_EMAIL) ?>
+        	</label>
+            <div id="correo" class="col-sm-10">
+                <input class="form-control" type="email" name="correo" id="correo" required>
+            </div>
+            <div class="invalid-feedback">Prueba mensaje</div>
+        </div>
+        <div class="form-group">
+        	<label class="col control-label" for="mensaje">
+        		<?= cambiarAcentos(_MENSAJE) ?>
+        	</label>
+            <div class="col-sm-10">
+            	<textarea id="mensaje" name="mensaje" class="form-control" rows="3" cols="80" required="required"></textarea>
+            </div>
+        </div>
+        
+        <div class="form-group">
+            <div class="col">
+                <p class="text-center"><button type="submit" class="btn btn-default"><?= cambiarAcentos(_ENVIAR) ?></button></p>
+            </div>
+        </div>
 	</form>
 </div>
-

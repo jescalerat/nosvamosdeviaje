@@ -12,8 +12,9 @@
 
 <?php
         $query="select * ";
-        $query.="from municipios ";
-        $query.="where coordenadax is not null";
+        $query.="from municipios mun, visitados vis ";
+        $query.="where mun.IdMunicipio=vis.IdMunicipio ";
+        $query.="and mun.CoordenadaX is not null";
         
         $municipios=mysqli_query ($link, $query);
 

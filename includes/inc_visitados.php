@@ -39,6 +39,7 @@
 	$filasfotos=mysqli_num_rows($fotosVisitados);
 
 ?>
+<h1 class="text-center"><?= obtenerMunicipio($link, $idMunicipio, false) ?></h1>
 <form class="col">
 	<div class="row">
 		<div class="col" id="comentario">

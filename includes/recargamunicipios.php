@@ -80,7 +80,7 @@
 ?>
 		<thead class="thead-dark">
     		<tr>
-				<th scope="col" colspan="2"><center><?= $tituloComunidad ?></center></th>	
+				<th scope="col" colspan="2" class="text-center"><?= $tituloComunidad ?></th>	
 			</tr>
 		</thead>
 <?php 
@@ -92,7 +92,7 @@
 ?>
 		<thead class="thead-light">
     		<tr>
-				<th scope="col" colspan="2"><center><?= $tituloProvincia ?></center></th>	
+				<th scope="col" colspan="2" class="text-center"><?= $tituloProvincia ?></th>	
 			</tr>
 		</thead>
 <?php 
@@ -100,7 +100,7 @@
 ?>	
 		<tr>
 			<td valign="top" width="70%">
-				<a href="#" onclick="llamada_prototype('paginas/visitados.php?idVisitado=<?= $idVisitado ?>&idMunicipio=<?= $idMunicipio ?>','principal');"><?= $tituloMunicipio ?></a>
+				<a href="#" class="btn btn-default btn-block" role="button" onclick="llamada_prototype('paginas/visitados.php?idVisitado=<?= $idVisitado ?>&idMunicipio=<?= $idMunicipio ?>','principal');"><?= $tituloMunicipio ?></a>
  			</td>
 			<td valign="top" width="30%"><?= devolverFecha($provincia["Fecha"]) ?></td>
 		</tr>

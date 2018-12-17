@@ -24,10 +24,10 @@
 	$titulo = $rowruta["Titulo"];
 ?>
 
-<form class="col s12">
+<form class="col">
 	<div class="row">
-		<div class="col s12" id="titulo">
-			<h1><?= cambiarAcentos(mb_strtoupper($titulo)) ?></h1>
+		<div class="col" id="titulo">
+			<h1 class="text-center"><?= cambiarAcentos(mb_strtoupper($titulo)) ?></h1>
 		</div>
 	</div>
 <?php
@@ -48,14 +48,16 @@
 <div class="row">
 	<div class="col" id="rutas">
 		<table class="table">
-			<tr>
-				<th>		
-					<?= cambiarAcentos(_RUTADIA) ?>
-				</th>
-				<th>		
-					<?= cambiarAcentos(_RUTAMUNICIPIOS) ?>
-				</th>
-			</tr>
+			<thead class="thead-dark">
+    			<tr>
+    				<th class="text-center">		
+    					<?= cambiarAcentos(mb_strtoupper(_RUTADIA)) ?>
+    				</th>
+    				<th class="text-center">		
+    					<?= cambiarAcentos(mb_strtoupper(_RUTAMUNICIPIOS)) ?>
+    				</th>
+    			</tr>
+    		</thead>
 <?php
 			while($dia=mysqli_fetch_array($diasRuta, MYSQLI_BOTH))
 			{
@@ -63,7 +65,7 @@
 ?>
 				<tr>
 					<td>
-						<a href="#" onclick="llamada_prototype('paginas/ruta_dia.php?idRutaDia=<?= $dia['IdRutaDia'] ?>','principal');"><?= devolverFecha($dia["Fecha"]) ?></a>
+						<a href="#" class="btn btn-default btn-block" role="button" onclick="llamada_prototype('paginas/ruta_dia.php?idRutaDia=<?= $dia['IdRutaDia'] ?>','principal');"><?= devolverFecha($dia["Fecha"]) ?></a>
 					</td>
 					<td>
 						<?php require("../includes/inc_ruta_municipios.php"); ?>

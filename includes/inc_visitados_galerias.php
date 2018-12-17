@@ -11,7 +11,7 @@ $fotos2=mysqli_query ($link, $query);
 	
 	<div class="row">
 		<div class="col-3" id="blancoizquierdo<?= $inicio ?>">
-			<p class="text-right"><a href="#" onclick="antes('#carouselVisitados<?= $inicio ?>')"><?= _ANTERIOR ?></a></p>
+			<p class="text-right"><a href="#" class="btn btn-default btn-block" role="button" onclick="antes('#carouselVisitados<?= $inicio ?>')"><?= _ANTERIOR ?></a></p>
 		</div>
 		
 		<div class="col-6" id="fotos<?= $inicio ?>">
@@ -63,7 +63,7 @@ $fotos2=mysqli_query ($link, $query);
 			</div> <!-- id="carouselVisitados" -->
 		</div> <!-- id="fotos" -->
 		<div class="col-3" id="blancoderecho<?= $inicio ?>">
-			<a href="#" onclick="despues('#carouselVisitados<?= $inicio ?>')"><?= _POSTERIOR ?></a>
+			<a href="#" class="btn btn-default btn-block" role="button" onclick="despues('#carouselVisitados<?= $inicio ?>')"><?= _POSTERIOR ?></a>
 		</div>
 	</div> <!-- row -->
 <script>
