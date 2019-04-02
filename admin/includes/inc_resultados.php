@@ -26,10 +26,10 @@
 	if ($idPagina == 1){
 		$fecha = isset($_POST['fecha'])?$_POST['fecha']:"";
 		if ($fecha != ""){
-			$fechaArray = explode('/', $fecha);
-			$dia = $fechaArray[0];
+			$fechaArray = explode('-', $fecha);
+			$dia = $fechaArray[2];
 			$mes = $fechaArray[1];
-			$anyo = $fechaArray[2];
+			$anyo = $fechaArray[0];
 			$fechaBBDD = $anyo."-".$mes."-".$dia;
 		}
 		$titulo = isset($_POST['titulo'])?$_POST['titulo']:"";

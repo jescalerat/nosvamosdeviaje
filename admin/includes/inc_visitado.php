@@ -21,12 +21,8 @@
 		$query="select * from visitados where idVisitado = ".$idVisitado;
 		$visitado=mysqli_query ($link, $query);
 		$rowvisitado=mysqli_fetch_array($visitado);
-		
-		$fechaArray = explode('-', $rowvisitado["Fecha"]);
-		$dia = $fechaArray[2];
-		$mes = $fechaArray[1];
-		$anyo = $fechaArray[0];
-		$fecha = $dia."/".$mes."/".$anyo;
+
+		$fecha = $rowvisitado["Fecha"];
 		$titulo = $rowvisitado["Titulo"];
 		$facebook = $rowvisitado["Facebook"];
 		$idMunicipio = $rowvisitado["IdMunicipio"];
@@ -66,7 +62,7 @@
         </div>
         <div class="form-group">
             <div class="col">
-                <p class="text-center"><button type="button" class="btn btn-default">Enviar Mensaje</button></p>
+                <p class="text-center"><button type="submit" class="btn btn-default">Enviar Mensaje</button></p>
             </div>
         </div>
 
