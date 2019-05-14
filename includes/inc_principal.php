@@ -15,13 +15,14 @@
         $query.="from municipios mun, visitados vis ";
         $query.="where mun.IdMunicipio=vis.IdMunicipio ";
         $query.="and mun.CoordenadaX is not null";
-        
+
         $municipios=mysqli_query ($link, $query);
 
         $marcas = "";
         while($municipio=mysqli_fetch_array($municipios, MYSQLI_BOTH))
 		{
-		    $marcas .= "L.marker([".$municipio['CoordenadaX'].", ".$municipio['CoordenadaY']."]).bindPopup('".$municipio['Municipio']."').addTo(cities),";
+		    $municipioText = str_replace("'", "\'", $municipio['Municipio']);
+		    $marcas .= "L.marker([".$municipio['CoordenadaX'].", ".$municipio['CoordenadaY']."]).bindPopup('".$municipioText."').addTo(cities),";
 		}
 		
         $marcas = substr($marcas, 0, strlen($marcas) - 1);
