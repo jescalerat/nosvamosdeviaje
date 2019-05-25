@@ -52,7 +52,7 @@
 </div>
 
 <?php
-	$query="select rm.IdVisitado, m.Municipio, p.Provincia ";
+	$query="select rm.IdVisitado, m.Municipio, p.Provincia, rd.IdRuta ";
 	$query.=" from rutas_dias rd  ";
 	$query.=" left join rutas_municipios rm on rm.IdRutaDia = rd.IdRutaDia ";
 	$query.=" left join visitados v on v.IdVisitado = rm.IdVisitado ";
@@ -62,15 +62,22 @@
 	$query.=" order by rm.Orden asc ";
 
 	$visitados=mysqli_query ($link, $query);
+	$idRutaVolver = 0;
 ?>
 
 <?php
 	while($visitado=mysqli_fetch_array($visitados, MYSQLI_BOTH))
 	{
 		$municipio = $visitado["Municipio"]." (".$visitado["Provincia"].")";
+		$idRutaVolver = $visitado['IdRuta'];
 ?>
-		<a href="#" class="list-group-item" onclick="llamada_prototype('paginas/visitados.php?idVisitado=<?= $visitado['IdVisitado'] ?>','principal');"><?= cambiarAcentos($municipio) ?></a>
+		<a href="#" class="list-group-item" onclick="llamada_prototype('paginas/visitados.php?idVisitado=<?= $visitado['IdVisitado'] ?>&idRutaDia=<?= $idRutaDia ?>','principal');"><?= cambiarAcentos($municipio) ?></a>
 <?php
 	}		
 	mysqli_free_result($visitados);
 ?>
+
+
+<div class="alert alert-info text-center">
+	<a href="#" class="alert-link" onclick="llamada_prototype('paginas/ruta.php?idRuta=<?= $idRutaVolver ?>','principal');"><?= cambiarAcentos(_RUTADIAVOLVER) ?></a>
+</div>

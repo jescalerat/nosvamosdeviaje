@@ -1,5 +1,11 @@
 ﻿<?php
 	$idVisitado = $_GET['idVisitado'];
+	
+	$idRutaDia = 0;
+	if (isset($_GET['idRutaDia'])){
+	   $idRutaDia = $_GET['idRutaDia'];
+	}
+	
 
 	if ($idioma == 1){
 		$comentario = "ComentarioES";
@@ -78,3 +84,13 @@
 
 </script>
 </form>
+
+<?php 
+    if ($idRutaDia != 0){
+?>
+    <div class="alert alert-info text-center">
+    	<a href="#" class="alert-link" onclick="llamada_prototype('paginas/ruta_dia.php?idRutaDia=<?= $idRutaDia ?>','principal');"><?= cambiarAcentos(_VISITADOSVOLVER) ?></a>
+    </div>
+<?php 
+    }
+?>

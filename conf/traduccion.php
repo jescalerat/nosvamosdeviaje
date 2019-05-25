@@ -116,11 +116,12 @@ if ($idioma==1) //Español
 	//Ruta dia
 	define ('_RUTADIA','Día');
 	define ('_RUTAMUNICIPIOS','Municipios visitados');
+	define ('_RUTADIAVOLVER','Volver a rutas');
 	
 	//Visitados
 	define ('_ANTERIOR','Anterior');
 	define ('_POSTERIOR','Posterior');
-	
+	define ('_VISITADOSVOLVER','Volver a día de ruta');
 
 }
 else if ($idioma==2) //Inglés
