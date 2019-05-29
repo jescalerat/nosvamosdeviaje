@@ -1,5 +1,5 @@
 <div class="container">
-	<form role="form" id="needs-validation" method="post" action="paginas/contactar2.php">
+	<form role="form" id="needs-validation" method="post" action="javascript:llamada_prototype('paginas/contactar2.php','principal','2','needs-validation');">
 		<div class="row">
 			<div class="input-field col">
 				<h1 class="text-center"><?= strtoupper(_TITULO) ?></h1>

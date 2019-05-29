@@ -1,4 +1,4 @@
-﻿<?php
+﻿﻿<?php
 	$idVisitado = $_GET['idVisitado'];
 	
 	$idRutaDia = 0;
@@ -54,15 +54,21 @@
 	</div>
 
 <?php 
-    $inicio = 0;
-    $registros = 10;
-    for ($x=0; $x < $filasfotos; $x++){
-        if ($x == 0 || $x % $registros == 0){
-            require("inc_visitados_galerias.php");
-            $inicio = $x + $registros + 1;
+    if ($filasfotos > 0){
+        $inicio = 0;
+        $registros = 10;
+        for ($x=0; $x < $filasfotos; $x++){
+            if ($x == 0 || $x % $registros == 0){
+                require("inc_visitados_galerias.php");
+                $inicio = $x + $registros + 1;
+            }
         }
+        mysqli_free_result($fotosVisitados);
+    } else {
+?>
+		<div class="alert alert-warning"><?= cambiarAcentos(_VISITADOSSINFOTOS) ?></div>
+<?php        
     }
-    mysqli_free_result($fotosVisitados);
 ?>
 
 <script>

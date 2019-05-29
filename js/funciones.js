@@ -383,9 +383,44 @@ function llamada_ajax(URL,objetoDIV)
 
 function llamada_prototype(URL,objetoDIV)
 {
-	var objeto =  "#"+objetoDIV;
-	$(objeto).load(URL);
+	//var objeto =  "#"+objetoDIV;
+	//$(objeto).load(URL);
+	llamada_prototype(URL,objetoDIV,1,'');
 }
+
+function llamada_prototype(URL,objetoDIV,tipo,formulario){
+	var texto = '';
+	if (document.getElementById("cargandotexto")!=null){
+		texto = document.getElementById("cargandotexto").value;
+	}
+
+	if (tipo == 1){
+        $.ajax({
+                url:   URL,
+                type:  'get',
+                beforeSend: function () {
+                        $("#"+objetoDIV).html("<img src='imagenes/loading.gif' align='middle' />"+texto);
+                },
+                success:  function (response) {
+                        $("#"+objetoDIV).html(response);
+                }
+        });
+	}
+	else {
+		$.ajax({
+            data:  $("#"+formulario).serialize(), //datos que se envian a traves de ajax
+            url:   URL, //archivo que recibe la peticion
+            type:  'post', //método de envio
+            beforeSend: function () {
+                $("#"+objetoDIV).html("<img src='imagenes/loading.gif' align='middle' />"+texto);
+            },
+            success:  function (response) {
+                    $("#"+objetoDIV).html(response);
+            }
+    });
+	}
+}
+
 
 //-----------------------------------------------------------------------------------------------------------------
 //Funciones necesarias externas

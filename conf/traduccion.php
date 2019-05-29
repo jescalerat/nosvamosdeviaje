@@ -1,4 +1,4 @@
-﻿<?php
+﻿﻿<?php
 //Club=1
 //Resultados=2
 //Clasificación=3
@@ -122,6 +122,7 @@ if ($idioma==1) //Español
 	define ('_ANTERIOR','Anterior');
 	define ('_POSTERIOR','Posterior');
 	define ('_VISITADOSVOLVER','Volver a día de ruta');
+	define ('_VISITADOSSINFOTOS','Todavía no hemos cargado las fotos');
 
 }
 else if ($idioma==2) //Inglés
