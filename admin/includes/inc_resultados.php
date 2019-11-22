@@ -35,6 +35,8 @@
 		$titulo = isset($_POST['titulo'])?$_POST['titulo']:"";
 		$facebook = isset($_POST['facebook'])?$_POST['facebook']:"";
 		$idMunVisitado = isset($_POST['idMunVisitado'])?$_POST['idMunVisitado']:"";
+		$coordenadax = isset($_POST['coordenadax'])?$_POST['coordenadax']:"";
+		$coordenaday = isset($_POST['coordenaday'])?$_POST['coordenaday']:"";
 		
 		$idRuta = 0;
 		if (isset($_POST['idVisitado'])){
@@ -46,15 +48,21 @@
 		if ($opcion == "N"){
 			$query="insert into visitados (IdMunicipio, Fecha, Titulo, Facebook) values (".$idMunVisitado.", '".$fechaBBDD."', '".$titulo."', '".$facebook."')";
 			mysqli_query ($link, $query);
-			print("Insert: ".$query);
+			print("Insert: ".$query.";");
 		} else if ($opcion == "U"){
 			$query="update visitados set Fecha='".$fechaBBDD."', Titulo='".$titulo."', Facebook='".$facebook."' where IdVisitado=".$idVisitado;
 			mysqli_query ($link, $query);
-			print("Update: ".$query);
+			print("Update: ".$query.";");
 		} else if ($opcion == "D"){
 			$query="delete from visitados where IdVisitado=".$idVisitado;
 			mysqli_query ($link, $query);
-			print("Delete: ".$query);
+			print("Delete: ".$query.";");
+		}
+		
+		if ($coordenadax != "" && $coordenaday != ""){
+		    $query="update municipios set CoordenadaX=".$coordenadax.", CoordenadaY=".$coordenaday." where IdMunicipio=".$idMunVisitado;
+		    mysqli_query ($link, $query);
+		    print("<br>Update: ".$query.";");
 		}
 
 		$volver = "visitas.php";
@@ -62,6 +70,7 @@
 		$fechaES = str_replace("'", "''", isset($_POST['fechaES'])?$_POST['fechaES']:"");
 		$fechaCA = str_replace("'", "''", isset($_POST['fechaCA'])?$_POST['fechaCA']:"");
 		$fechaEN = str_replace("'", "''", isset($_POST['fechaEN'])?$_POST['fechaEN']:"");
+		$orden = isset($_POST['orden'])?$_POST['orden']:"";
 		$idRuta = 0;
 		if (isset($_POST['idRuta'])){
 			$idRuta = $_POST['idRuta'];
@@ -70,17 +79,17 @@
 		}
 		
 		if ($opcion == "N"){
-			$query="insert into rutas (FechaES, FechaCA, FechaEN) values ('".$fechaES."', '".$fechaCA."', '".$fechaEN."')";
+			$query="insert into rutas (FechaES, FechaCA, FechaEN, Orden) values ('".$fechaES."', '".$fechaCA."', '".$fechaEN."', ".$orden.")";
 			mysqli_query ($link, $query);
-			print("Insert: ".$query);
+			print("Insert: ".$query.";");
 		} else if ($opcion == "U"){
-			$query="update rutas set FechaES='".$fechaES."', FechaCA='".$fechaCA."', FechaEN='".$fechaEN."' where IdRuta=".$idRuta;
+			$query="update rutas set FechaES='".$fechaES."', FechaCA='".$fechaCA."', FechaEN='".$fechaEN."', Orden='".$orden."' where IdRuta=".$idRuta;
 			mysqli_query ($link, $query);
-			print("Update: ".$query);
+			print("Update: ".$query.";");
 		} else if ($opcion == "D"){
 			$query="delete from rutas where IdRuta=".$idRuta;
 			mysqli_query ($link, $query);
-			print("Delete: ".$query);
+			print("Delete: ".$query.";");
 		}
 
 		$volver = "rutas.php";
@@ -102,15 +111,15 @@
 		if ($opcion == "N"){
 			$query="insert into comentarios (IdVisitado, ComentarioES, ComentarioCA, ComentarioEN) values (".$idVisitado.", '".$comentarioES."', '".$comentarioCA."', '".$comentarioEN."')";
 			mysqli_query ($link, $query);
-			print("Insert: ".$query);
+			print("Insert: ".$query.";");
 		} else if ($opcion == "U"){
 			$query="update comentarios set ComentarioES='".$comentarioES."', ComentarioCA='".$comentarioCA."', ComentarioEN='".$comentarioEN."' where IdComentario=".$idComentario;
 			mysqli_query ($link, $query);
-			print("Update: ".$query);
+			print("Update: ".$query.";");
 		} else if ($opcion == "D"){
 			$query="delete from comentarios where IdComentario=".$idComentario;
 			mysqli_query ($link, $query);
-			print("Delete: ".$query);
+			print("Delete: ".$query.";");
 		}
 
 		$volver = "comentarios.php";
@@ -152,7 +161,7 @@
 		} else if ($opcion == "D"){
 			$query="delete from fotos where IdMunicipio=".$idMunicipio;
 			mysqli_query ($link, $query);
-			print("Delete: ".$query);
+			print("Delete: ".$query.";");
 		}
 
 		$volver = "fotos.php";
@@ -197,7 +206,7 @@
 		} else if ($opcion == "D"){
 			$query="delete from rutas_municipios where IdRutaMunicipio=".$idRutaMunicipio;
 			mysqli_query ($link, $query);
-			print("Delete: ".$query);
+			print("Delete: ".$query.";");
 		}
 
 		$volver = "rutas_municipios.php?idRutaDia=".$idRutaDia;
@@ -235,11 +244,11 @@
 		} else if ($opcion == "U"){
 			$query="update rutas_comentarios set ComentarioES='".$comentarioES."', ComentarioCA='".$comentarioCA."', ComentarioEN='".$comentarioEN."' where IdRutaComentario=".$idRutaComentario;
 			mysqli_query ($link, $query);
-			print("Update: ".$query);
+			print("Update: ".$query.";");
 		} else if ($opcion == "D"){
 			$query="delete from rutas_comentarios where IdRutaComentario=".$idRutaComentario;
 			mysqli_query ($link, $query);
-			print("Delete: ".$query);
+			print("Delete: ".$query.";");
 		}
 
 		$volver = "rutas_comentarios.php?idRutaDia=".$idRutaDia;
@@ -278,11 +287,11 @@
 		} else if ($opcion == "U"){
 			$query="update rutas_dias set Fecha='".$fecha."' where IdRutaDia=".$idRutaDia;
 			mysqli_query ($link, $query);
-			print("Update: ".$query);
+			print("Update: ".$query.";");
 		} else if ($opcion == "D"){
 			$query="delete from rutas_dias where IdRutaDia=".$idRutaDia;
 			mysqli_query ($link, $query);
-			print("Delete: ".$query);
+			print("Delete: ".$query.";");
 		}
 
 		$volver = "rutas_dias.php?idRuta=".$idRuta;

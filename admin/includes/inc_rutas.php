@@ -2,6 +2,7 @@
 	$fechaES = "";
 	$fechaCA = "";
 	$fechaEN = "";
+	$orden = "";
 
 	if ($idRuta != "" && $idRuta != "undefined"){
 		$query="select * from rutas where idRuta = ".$idRuta;
@@ -11,6 +12,7 @@
 		$fechaES = $rowruta["FechaES"];
 		$fechaCA = $rowruta["FechaCA"];
 		$fechaEN = $rowruta["FechaEN"];
+		$orden = $rowruta["Orden"];
 
 		mysqli_free_result($rutas);
 		$opcion = "U";
@@ -40,6 +42,14 @@
         	</label>
             <div class="col-sm-10">
                 <input class="form-control" type="text" name="fechaEN" id="fechaEN" value="<?= $fechaEN ?>">
+            </div>
+        </div>
+        <div class="form-group">
+        	<label class="col control-label" for="orden">
+        		Orden
+        	</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="orden" id="orden" value="<?= $orden ?>">
             </div>
         </div>
 		

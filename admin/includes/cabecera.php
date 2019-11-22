@@ -1,11 +1,11 @@
 <?php
   session_start();
-/*  if (!isset($_SESSION['registrado']))
+  if (!isset($_SESSION['registrado']))
 	{
 		header("Location:login.php");	
 	}
 	$tipo_usuario = $_SESSION['tipo_usuario'];
-*/
+
 	$tipo_usuario = 1;	
 	require_once("../conf/traduccion.php");
 	require_once("../conf/conexion.php");

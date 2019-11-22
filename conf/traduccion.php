@@ -121,6 +121,7 @@ if ($idioma==1) //Español
 	//Visitados
 	define ('_ANTERIOR','Anterior');
 	define ('_POSTERIOR','Posterior');
+	define ('_SIGUIENTE','Siguiente');
 	define ('_VISITADOSVOLVER','Volver a día de ruta');
 	define ('_VISITADOSSINFOTOS','Todavía no hemos cargado las fotos');
 

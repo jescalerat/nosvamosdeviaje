@@ -29,7 +29,7 @@ function Conectarse()
 	//Conexión localhost
 	$enlace = mysqli_connect("localhost","root","", "nosvamosdeviajema");
 	//Conexión web 1and1
-	//$enlace = mysqli_connect("db393887321.db.1and1.com","dbo393887321","Torres2008", "db393887321");
+    //$enlace = mysqli_connect("mysql.webcindario.com","nosvamosdeviaje","Torres2008", "nosvamosdeviaje");
 
 	if (!$enlace) {
 		echo "Error: No se pudo conectar a MySQL." . PHP_EOL;

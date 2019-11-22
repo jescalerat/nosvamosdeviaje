@@ -55,14 +55,20 @@
 
 <?php 
     if ($filasfotos > 0){
-        $inicio = 0;
+       /* $inicio = 0;
         $registros = 10;
         for ($x=0; $x < $filasfotos; $x++){
-            if ($x == 0 || $x % $registros == 0){
+            if ($x == 0 || $x % $registros == 0){*/
+?>
+        <div id="galerias">
+<?php  
                 require("inc_visitados_galerias.php");
-                $inicio = $x + $registros + 1;
+?>
+        </div>
+<?php 
+/*                $inicio = $x + $registros + 1;
             }
-        }
+        }*/
         mysqli_free_result($fotosVisitados);
     } else {
 ?>

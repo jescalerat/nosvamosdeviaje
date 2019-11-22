@@ -1,8 +1,7 @@
-<?
+<?php
 	session_start();
-	//Conexión a base de datos
-	require_once($_SESSION["ruta"]."conf/conexion.php");
-	$link=Conectarse();
+	require_once("../conf/conexion.php");
+	$link = Conectarse();
 
 	//En principio suponemos que el usuario no esta registrado
 	$registrado=0;
@@ -14,33 +13,47 @@
 		$password=$_POST['password'];
 		
 		$query="select * from usuarios where Usuario=\"".$usuario."\" and  Password=\"".$password."\"";
-		$q=mysql_query($query,$link);
-		$registrado=mysql_num_rows($q);
-		
+		$q=mysqli_query($link, $query);
+		$rowUsuario=mysqli_fetch_array($q);
+		$registrado=mysqli_num_rows($q);
+	
 		$_SESSION["registrado"]=$registrado;
 		$_SESSION["usuario"]=$usuario;
+
 		if ($registrado != 0)
 		{
-			$_SESSION["tipo_usuario"]=mysql_result($q,0,"Tipo");
-			$_SESSION["nombre"]=mysql_result($q,0,"Nombre");
+		    $_SESSION["tipo_usuario"]=$rowUsuario["Tipo"];
+		    $_SESSION["nombre"]=$rowUsuario["Nombre"];
 		}
+		mysqli_free_result($q);
 	}
 	else
 	{
 		session_destroy();
 		header("Location:login.php");	
 	}
-
-	//Si no esta registrado se volverá a la página index y aparecerá el error.
-	//En caso de que este registrado iremos a la página principal.
 	
+	//Si no esta registrado se volvera a la pagina index y aparecera el error.
+	//En caso de que este registrado iremos a la pagina principal.
 	if ($registrado != 0)
 	{
-		header("Location:index.php");
+	    $pagina = $_POST['abrirpagina'];
+	    if ($pagina == 1){
+	        header("Location:index.php");
+	    } else if ($pagina == 2){
+	        header("Location:paginas/bbdd.php");
+	    } else if ($pagina == 3){
+	        header("Location:comprobar_visitas.php");
+	    } else if ($pagina == 4){
+	        header("Location:comprobar_paginas_vistas.php");
+	    } else {
+	        header("Location:index.php");
+	    }
+	    
 	}
 	else
 	{
-		session_destroy();
-		header("Location:login.php");	
+	    session_destroy();
+	    header("Location:login.php?error=1");
 	}
 ?>

@@ -1,7 +1,7 @@
 ﻿<form class="col">
 	<div class="row">
 		<div class="col" id="titulo">
-			<h1 class="text-center"><?= cambiarAcentos(mb_strtoupper(_RUTASTITULO)) ?></h1>
+			<h1 class="text-center"><?= cambiarAcentos(strtoupper(_RUTASTITULO)) ?></h1>
 		</div>
 	</div>
 <?php
@@ -17,6 +17,7 @@
 	}
 	$query="select IdRuta, ".$tituloRuta." as Titulo ";
 	$query.="from rutas ";
+	$query.="order by Orden desc ";
 
 	$rutas=mysqli_query ($link, $query);
 ?>

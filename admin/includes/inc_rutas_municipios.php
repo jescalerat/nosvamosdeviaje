@@ -16,7 +16,7 @@
 		$query="select v.IdVisitado, m.IdMunicipio, m.Municipio, v.Fecha ";
 		$query.="from visitados v, municipios m ";
 		$query.="where v.IdMunicipio=m.idMunicipio ";
-
+		$query.="and v.Fecha = '".$fecha."'";
 		$municipios=mysqli_query ($link, $query);
 	} 
 

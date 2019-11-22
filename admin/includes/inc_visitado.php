@@ -9,12 +9,11 @@
 	}
 	$opcion = $_GET['opcion'];
   
-	$dia = "";
-	$mes = "";
-	$anyo = "";
 	$titulo = "";
 	$facebook = "";
 	$fecha = "";
+	$coordenadax = "";
+	$coordenaday = "";
 		
 	if (isset($_GET['idVisitado'])){
 		$idVisitado = $_GET['idVisitado'];
@@ -26,10 +25,18 @@
 		$titulo = $rowvisitado["Titulo"];
 		$facebook = $rowvisitado["Facebook"];
 		$idMunicipio = $rowvisitado["IdMunicipio"];
+		$idMunicipioVisitado = $rowvisitado["IdMunicipio"];
 
 		mysqli_free_result($visitado);
 
 		$municipio = obtenerMunicipio($link, $idMunicipio, false);
+		
+		$query="select * from municipios where idMunicipio = ".$idMunicipio;
+		$municipioCoor=mysqli_query ($link, $query);
+		$rowMunicipio=mysqli_fetch_array($municipioCoor);
+		
+		$coordenadax = $rowMunicipio["CoordenadaX"];
+		$coordenaday = $rowMunicipio["CoordenadaY"];
 	}
 ?>
 
@@ -58,6 +65,22 @@
         	</label>
             <div class="col-sm-10">
                 <input class="form-control" type="text" name="facebook" id="facebook" value="<?= $facebook ?>">
+            </div>
+        </div>
+        <div class="form-group">
+        	<label class="col control-label" for="facebook">
+        		Coordenada X
+        	</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="coordenadax" id="coordenadax" value="<?= $coordenadax ?>">
+            </div>
+        </div>
+        <div class="form-group">
+        	<label class="col control-label" for="facebook">
+        		Coordenada Y
+        	</label>
+            <div class="col-sm-10">
+                <input class="form-control" type="text" name="coordenaday" id="coordenaday" value="<?= $coordenaday ?>">
             </div>
         </div>
         <div class="form-group">
