@@ -103,7 +103,7 @@ img.zoom {
     		<p>
     
     		<nav aria-label="Page navigation example">
-				<ul class="pagination pagination-sm justify-content-center">
+				<ul class="pagination pagination-sm justify-content-between">
 <?php
     			if(($pagina - 1) > 0)
     			{
