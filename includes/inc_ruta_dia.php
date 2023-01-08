@@ -41,7 +41,10 @@
 	$comentarioRuta=mysqli_query ($link, $query);
 	$rowcomentarioruta=mysqli_fetch_array($comentarioRuta);
 
-	$comentario = $rowcomentarioruta["Comentario"];
+	$comentario = "";
+	if ($rowcomentarioruta != null){
+		$comentario = $rowcomentarioruta["Comentario"];
+	}
 	mysqli_free_result($comentarioRuta);
 ?>
 

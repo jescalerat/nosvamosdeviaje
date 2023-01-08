@@ -11,19 +11,19 @@
 <?php	
 	
 	$idPais = 0;
-	if(isset($_POST['idPais'])){
+	if(isset($_POST['idPais']) && $_POST['idPais'] != ""){
 		$idPais = $_POST['idPais'];
 	}
 	$idComunidad = 0;
-	if(isset($_POST['idComunidad'])){
+	if(isset($_POST['idComunidad']) && $_POST['idComunidad'] != "" && $_POST['idComunidad'] != "__jc__"){
 		$idComunidad = $_POST['idComunidad'];
 	}
 	$idProvincia = 0;
-	if(isset($_POST['idProvincia'])){
+	if(isset($_POST['idProvincia']) && $_POST['idProvincia'] != "__jc__"){
 		$idProvincia = $_POST['idProvincia'];
 	}
 	$idMunicipio = 0;
-	if(isset($_POST['idMunicipio'])){
+	if(isset($_POST['idMunicipio']) && $_POST['idMunicipio'] != "__jc__"){
 		$idMunicipio = $_POST['idMunicipio'];
 	}
 	
